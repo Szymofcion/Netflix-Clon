@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.281);
+
+    z-index: 10;
+
+    &__netflix {
+        color: red;
+        font-weight: bold;
+        font-size: 1rem;
+        z-index: 10;
+    }
+
+    &__text {
+        font-size: 0.9rem;
+        font-weight: bold;
+        z-index: 10;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &__tools {
+        font-size: 1.1rem;
+        font-weight: bold;
+        transform: rotate(90deg);
+        z-index: 10;
+        color: gray;
+    }
+}
