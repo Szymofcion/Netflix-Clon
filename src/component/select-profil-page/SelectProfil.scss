@@ -1,63 +1,62 @@
 .netflix-text {
-    color: rgb(255, 2, 2);
-    text-transform: uppercase;
-    margin-left: 0.3em;
-    font-size: 2rem;
+  color: rgb(255, 2, 2);
+  text-transform: uppercase;
+  margin-left: 0.3em;
+  font-size: 2rem;
 }
 
 .pen {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0.7em;
-    font-size: 1.5rem;
-    background: none;
-    color: #fff;
-    border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.7em;
+  font-size: 1.5rem;
+  background: none;
+  color: #fff;
+  border: none;
 }
 
 .select__container {
-    overflow: hidden;
-    height: 100vh;
-    max-width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: #fff;
+
+  &-nav {
+    padding-top: 0.7em;
+  }
+
+  &-title {
+    padding-top: 2em;
+    font-size: 1.4rem;
+    font-weight: normal;
+  }
+
+  &-profile {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4em;
+    margin-bottom: 1.4em;
+  }
+
+  &-new {
+    display: flex;
     align-items: center;
-    background-color: black;
-    color: #fff;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 6px;
 
-    &-nav {
-        padding-top: 0.7em;
+    &-text {
+      padding-top: 0.4em;
+      display: flex;
+      justify-content: center;
     }
-
-    &-title {
-        padding-top: 2em;
-        font-size: 1.4rem;
-        font-weight: normal;
-    }
-
-    &-profile {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.4em;
-        margin-bottom: 1.4em;
-    }
-
-    &-new {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100px;
-        width: 100px;
-        border: 1px solid gray;
-        border-radius: 6px;
-
-        &-text {
-            padding-top: 0.4em;
-            display: flex;
-            justify-content: center;
-
-        }
-    }
+  }
 }
