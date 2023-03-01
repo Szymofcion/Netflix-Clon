@@ -1,12 +1,19 @@
+
+import './Nav.scss'
+
+
 const Nav = () => {
   return (
     <div className="nav__container">
-      <span>Netlix</span> <a href="">Strona główna</a>
-      <a href="">seriale i programy</a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
+      <div className="nav_container-list">
+        <span>Netlix</span>
+        <a href="">Strona główna</a>
+        <a href="">Filmy</a>
+        <a href="">Moja lista</a>
+      </div>
+      <div className="nav_container-options">
+        <span>lupa profil</span>
+      </div>
     </div>
   );
 };
