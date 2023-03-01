@@ -1,0 +1,19 @@
+.nav__container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1em;
+  font-size: 1.6rem;
+  background: rgba(0, 0, 0, 0.384);
+  &-burger {
+    font-size: 2rem;
+  }
+  &-input {
+    margin: 0.4em;
+    margin-right: 1em;
+    width: 7rem;
+    height: 1.5rem;
+  }
+}
