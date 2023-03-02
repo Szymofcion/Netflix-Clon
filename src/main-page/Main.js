@@ -1,5 +1,5 @@
 import Nav from "../component/nav/Nav";
-import Login from "../component/login-page/Login";
+import Login from "../login-page/Login";
 import Movies from "./Movies";
 import "./Main.scss";
 

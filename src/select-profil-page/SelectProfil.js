@@ -1,16 +1,15 @@
 import { useState } from "react";
 
-import Avatar from "../ui/Avatar";
-import AddNewProfil from "../ui/AddNewProfil";
-import ModalNewUser from "../ui/ModalNewUser";
+import Avatar from "../component/ui/Avatar";
+import AddNewProfil from "../component/ui/AddNewProfil";
+import ModalNewUser from "../component/ui/ModalNewUser";
 
-import avatar1 from "../img/avatar1.png";
-import avatar2 from "../img/avatar2.png";
-import avatar3 from "../img/avatar3.png";
-import avatar4 from "../img/avatar4.png";
+import avatar1 from '../component/img/avatar1.png'
+import avatar2 from "../component/img/avatar2.png";
+import avatar3 from "../component/img/avatar3.png";
+import avatar4 from "../component/img/avatar4.png";
 import { BsFillPencilFill } from "react-icons/bs";
 import "./SelectProfil.scss";
-
 
 const avatarImg = [
   {
@@ -28,8 +27,8 @@ const avatarImg = [
   {
     id: 4,
     img: avatar4,
-  }]
-
+  },
+];
 
 const SelectProfil = () => {
   const [visible, setVisible] = useState(false);
@@ -40,12 +39,8 @@ const SelectProfil = () => {
   };
 
   const openModalBtn = () => {
-    setOpenModal((prev) => !prev)
-  }
-
-  console.log(avatarImg);
-
-  
+    setOpenModal((prev) => !prev);
+  };
 
   return (
     <section className="select__container overflow">
@@ -59,7 +54,9 @@ const SelectProfil = () => {
       <div className="select__container">
         <h1 className="select__container-title">Kto ogląda?</h1>
         <div className="select__container-profile">
-          {avatarImg.map((item) => <Avatar key={item.id} showDeleteButton={visible} src={item.img} />)}
+          {avatarImg.map((item) => (
+            <Avatar key={item.id} showDeleteButton={visible} src={item.img} />
+          ))}
           <AddNewProfil showModal={openModalBtn} />
         </div>
       </div>
