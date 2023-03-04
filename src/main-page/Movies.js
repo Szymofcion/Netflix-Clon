@@ -16,20 +16,16 @@ const Movies = () => {
       );
       const responseJSON = await respons.json();
       const images = responseJSON.items;
-      console.log(images);
       setMovie([...images]);
     };
     generateMovies();
   }, []);
 
   return (
-    <div>
+    <div className="row__container">
       {movie.map((items) => {
         return (
-          <div>
-            {items.title}
-            <img alt="#" className="movies__container" src={items.image} alt={items.alt}></img>
-          </div>
+            <img alt="#" className="row__container-img" src={items.image}></img>
         );
       })}
     </div>
