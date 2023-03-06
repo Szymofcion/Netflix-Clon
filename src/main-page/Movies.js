@@ -2,7 +2,7 @@ import "./Movies.scss";
 import { useState, useEffect } from "react";
 import { apiKey } from "../component/api/apiKey";
 
-const Movies = () => {
+const Movies = (props) => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
@@ -22,13 +22,21 @@ const Movies = () => {
   }, []);
 
   return (
-    <div className="row__container">
-      {movie.map((items) => {
-        return (
-            <img alt="#" className="row__container-img" src={items.image}></img>
-        );
-      })}
-    </div>
+    <section>
+      <h1 className="row__container-title">{props.title}</h1>
+      <div className="row__container">
+        {movie.map((items) => {
+          return (
+            <img
+              key=""
+              alt="#"
+              className="row__container-img"
+              src={items.image}
+            ></img>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 export default Movies;
