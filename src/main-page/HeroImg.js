@@ -16,7 +16,7 @@ const HeroImg = ()=>{
           );
           const responseJSON = await respons.json();
           const images = responseJSON.items;
-          console.log(respons);
+          console.log(images);
           
         //   Math.floor(Math.random() * images
           setHero([...images]);
@@ -25,6 +25,7 @@ const HeroImg = ()=>{
       }, []);
     return(
         <header className='container__img'>
+          <h1>title</h1>
 {/* {title} */}
 {/* {div>2buttons} */}
 {/* {descriptions} */}
