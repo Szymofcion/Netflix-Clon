@@ -1,0 +1,25 @@
+.container__img {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMTk1NDM4MDMwMF5BMl5BanBnXkFtZTcwMjY0OTk1Mw@@._V1_Ratio1.5000_AL_.jpg");
+  background-position: center;
+  background-size: cover;
+  object-fit: contain;
+  color: #ffff;
+  height: 448px;
+ 
+  &-content {
+    margin-left: 3em;
+    padding-top: 14em;
+    height: 19em;
+  }
+  &-title {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 0.3rem;
+  }
+  &-descriptions {
+    width: 45rem;
+    padding-top: 1em;
+    font-size: 0.8rem;
+    max-width: 360px;
+  }
+}
