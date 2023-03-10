@@ -11,7 +11,7 @@ const Movies = (props) => {
     };
     const generateMovies = async () => {
       const respons = await fetch(
-        "https://imdb-api.com/en/API/Images/k_nc812076/tt1375666/Short",
+        "https://imdb-api.com/en/API/Top250Movies/k_nc812076",
         { headers }
       );
       const responseJSON = await respons.json();
@@ -25,10 +25,10 @@ const Movies = (props) => {
     <section>
       <h1 className="row__container-title">{props.title}</h1>
       <div className="row__container">
-        {movie.map((items) => {
+        {movie.slice(0,10).map((items) => {
           return (
             <img
-              key=""
+              key={items.id}
               alt="#"
               className="row__container-img"
               src={items.image}

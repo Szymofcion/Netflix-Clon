@@ -15,17 +15,19 @@ const HeroImg = () => {
         { headers }
       );
       const responseJSON = await respons.json();
-
+      
       setHero(
         responseJSON.items[
           Math.floor(Math.random() * responseJSON.items.length - 1)
         ]
-      );
+        );
+        console.log(hero);
     };
     generateMovies();
-  }, []);
+  }, [hero]);
   return (
-    <header className="container__img">
+    <header className="container__img" >
+      
       <div className="container__img-content">
         <h1>{hero.title}</h1>
         <div className="container__img-buttons">
