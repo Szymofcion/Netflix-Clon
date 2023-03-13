@@ -21,6 +21,8 @@ const Movies = (props) => {
     generateMovies();
   }, []);
 
+  
+
   return (
     <section>
       <h1 className="row__container-title">{props.title}</h1>

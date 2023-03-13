@@ -1,49 +1,39 @@
 import { useState, useEffect } from "react";
-import { apiKey } from "../component/api/apiKey";
 import "./HeroImg.scss";
 
 const HeroImg = () => {
-  const [hero, setHero] = useState([]);
+  const [title, setTitle] = useState([]);
+  const [img, setImg] = useState([]);
+  const [descriptions, setDescriptions] = useState([]);
 
   useEffect(() => {
-    const headers = {
-      Autorization: apiKey,
-    };
     const generateMovies = async () => {
-      const respons = await fetch(
-        "https://imdb-api.com/en/API/Images/k_nc812076/tt1375666/Short",
-        { headers }
-      );
+      const respons = await fetch("http://localhost:3000/title");
       const responseJSON = await respons.json();
-      
-      setHero(
-        responseJSON.items[
-          Math.floor(Math.random() * responseJSON.items.length - 1)
-        ]
-        );
-        console.log(hero);
+      const title = responseJSON.title;
+      const img = responseJSON.img;
+      const descriptions = responseJSON.descriptions;
+
+      setTitle([...title]);
+      setImg([...img]);
+      setDescriptions([...descriptions]);
     };
     generateMovies();
-  }, [hero]);
+  }, []);
+  console.log(title);
+  console.log(img);
+  console.log(descriptions);
+
   return (
-    <header className="container__img" >
-      
+    <header className="container__img">
       <div className="container__img-content">
-        <h1>{hero.title}</h1>
+        <h1>{title[1]}</h1>
         <div className="container__img-buttons">
           <button>Play</button>
           <button>My list</button>
         </div>
         <div className="container__img-descriptions"></div>
-        <span>
-          Czasy, gdy technologia pozwala na wchodzenie w świat snów. Złodziej
-          Cobb ma za zadanie wszczepić myśl do śpiącego umysłu.
-          Czasy, gdy technologia pozwala na wchodzenie w świat snów. Złodziej
-          Cobb ma za zadanie wszczepić myśl do śpiącego umysłu.
-          Czasy, gdy technologia pozwala na wchodzenie w świat snów. Złodziej
-          Cobb ma za zadanie wszczepić myśl do śpiącego umysłu.
-        </span>
-        {/* {descriptions} */}
+        <span>{descriptions[0]}</span>
       </div>
     </header>
   );
