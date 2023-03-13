@@ -4,8 +4,11 @@ var app = express()
 
 app.use(cors())
 
-app.get('/', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
+app.get('/title', function (req, res, next) {
+  res.json({title: ['Mission imposible', 'Ty']})
+})
+app.get('/img', function (req, res, next) {
+  res.json({img: ['img2', 'img1']})
 })
 
 app.listen(3000, function () {
