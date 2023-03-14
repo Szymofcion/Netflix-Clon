@@ -1,31 +1,40 @@
-var express = require("express");
-var cors = require("cors");
-var app = express();
+const path = require('path')
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const dir = path.join(__dirname, "movieCover");
 
 app.use(cors());
+app.use('/movieCover', express.static(dir))
+
+
 
 app.get("/movies", function (req, res, next) {
   res.json({
     movies: [
       {
+        id: 1,
         title: "Mission Imposible I",
-        src: "jakis link",
-        descritpions: "Opis wyżej wymienionego filmu",
+        src: "http://localhost:3000/movieCover/Zwerbowany.jpg",
+        descriptions: "Opis wyżej wymienionego filmu",
       },
       {
+        id: 2,
         title: "Mission Imposible II",
         src: "jakis link",
-        descritpions: "Opis wyżej wymienionego filmu",
+        descriptions: "Opis wyżej wymienionego filmu",
       },
       {
+        id: 3,
         title: "Mission Imposible III",
         src: "jakis link",
-        descritpions: "Opis wyżej wymienionego filmu",
+        descriptions: "Opis wyżej wymienionego filmu",
       },
       {
+        id: 4,
         title: "Mission Imposible IV",
         src: "jakis link",
-        descritpions: "Opis wyżej wymienionego filmu",
+        descriptions: "Opis wyżej wymienionego filmu",
       },
     ],
   });
