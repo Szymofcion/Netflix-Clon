@@ -7,27 +7,40 @@ const HeroImg = () => {
   const [descriptions, setDescriptions] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
     const generateMovies = async () => {
-      const respons = await fetch("http://localhost:3000/title");
-      const responseJSON = await respons.json();
-      const title = responseJSON.title;
-      const img = responseJSON.img;
-      const descriptions = responseJSON.descriptions;
+      const response = await fetch("http://localhost:3000/movies", {
+        signal,
+      });
+      
+      if (!response.ok) {
+        return;
+      }
+      const data = await response.json();
+      console.log(data.movies[1]);
+
+      
+      // const img = responseJSON.movies.src;
+      // const descriptions = responseJSON.movies.descriptions;
 
       setTitle([...title]);
       setImg([...img]);
       setDescriptions([...descriptions]);
     };
+   
+    
     generateMovies();
-  }, []);
-  console.log(title);
-  console.log(img);
-  console.log(descriptions);
+    return () => {
+      controller.abort();
+    };
+  }, [title,img,descriptions]);
+ 
 
   return (
     <header className="container__img">
       <div className="container__img-content">
-        <h1>{title[1]}</h1>
+        {/* <h1>{title[1]}</h1> */}
         <div className="container__img-buttons">
           <button>Play</button>
           <button>My list</button>

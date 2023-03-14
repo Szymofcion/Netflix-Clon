@@ -4,11 +4,30 @@ var app = express();
 
 app.use(cors());
 
-app.get("/title", function (req, res, next) {
+app.get("/movies", function (req, res, next) {
   res.json({
-    title: ["Mission imposible", "Ty"],
-    img: ["img2", "img1"],
-    descriptions: ["opis filmu pierwszego", "opis do filmu który będzie drugi"],
+    movies: [
+      {
+        title: "Mission Imposible I",
+        src: "jakis link",
+        descritpions: "Opis wyżej wymienionego filmu",
+      },
+      {
+        title: "Mission Imposible II",
+        src: "jakis link",
+        descritpions: "Opis wyżej wymienionego filmu",
+      },
+      {
+        title: "Mission Imposible III",
+        src: "jakis link",
+        descritpions: "Opis wyżej wymienionego filmu",
+      },
+      {
+        title: "Mission Imposible IV",
+        src: "jakis link",
+        descritpions: "Opis wyżej wymienionego filmu",
+      },
+    ],
   });
 });
 app.get("/img", function (req, res, next) {
