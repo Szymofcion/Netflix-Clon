@@ -25,7 +25,7 @@ const HeroImg = () => {
       // if (!data?.movies) {
       //   return;
       // }
-      setMovies(data.movies[0]);
+      setMovies(data.movies[1]);
     };
 
     generateMovies();
@@ -35,16 +35,24 @@ const HeroImg = () => {
   }, []);
 
   return (
-    <header className="container__img">
+    <header
+      className="container__img"
+      style={{
+        backgroundImage: `url("http://localhost:3000/movieCover/Ty.jpg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
       <div className="container__img-content">
         <h1>{movies.title}</h1>
-        <img src={movies.src} alt="okładka"></img>
+        {/* <img className="hero-img"  alt="okładka"></img> */}
         <div className="container__img-buttons">
-          <button>Play</button>
-          <button>My list</button>
+          <button className="buttons-hero">Play</button>
+          <button className="buttons-hero">My list</button>
         </div>
-        <div className="container__img-descriptions"></div>
-        <span>{movies.descriptions}</span>
+        <div className="container__img-descriptions">
+          <span>{movies.descriptions}</span>
+        </div>
       </div>
     </header>
   );

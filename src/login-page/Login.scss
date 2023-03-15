@@ -2,12 +2,7 @@ a {
   text-decoration: none;
 }
 
-button {
-  background-color: none;
-  background: none;
-  border: none;
-  color: #fff;
-}
+
 
 .login {
   background-color: black;
@@ -21,6 +16,10 @@ button {
   }
 
   .back-arrow {
+    background-color: none;
+    background: none;
+    border: none;
+    color: #fff;
     font-size: 3rem;
   }
 }
@@ -77,5 +76,9 @@ button {
   &-description {
     color: gray;
     font-size: 0.7rem;
+    background-color: none;
+    background: none;
+    border: none;
+    color: #fff;
   }
 }

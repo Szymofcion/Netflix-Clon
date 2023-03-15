@@ -1,14 +1,13 @@
 .container__img {
-  background-position: center;
-  background-size: cover;
   object-fit: contain;
   color: #ffff;
   height: 448px;
- 
+
   &-content {
-    margin-left: 3em;
-    padding-top: 10em;
-    height: 19em;
+    margin-left: 2em;
+    padding-top: 9em;
+    height: 10em;
+    z-index: 1;
   }
   &-title {
     font-size: 3rem;
@@ -17,9 +16,33 @@
   }
   &-descriptions {
     width: 45rem;
-    padding-top: 1em;
+    padding-top: 1rem;
     font-size: 0.8rem;
-    width: 360px;
-    top: 450px;
+    max-width: 360px;
+    height: 80px;
+    line-height: 1.3;
   }
+  &-buttons {
+    cursor: pointer;
+
+    outline: none;
+    font-weight: 800px;
+  }
+}
+.hero-img {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  top: 3em;
+}
+.buttons-hero {
+  color: #fff;
+  border-radius: 3px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background: rgba(39, 39, 39, 0.685);
+  border: none;
 }
