@@ -1,13 +1,13 @@
 .container__img {
   object-fit: contain;
   color: #ffff;
-  height: 448px;
+  height: 360px;
 
   &-content {
     position: absolute;
     top: 5em;
     margin-left: 2em;
-    padding-top: 5em;
+    padding-top: 2.8em;
     height: 10em;
     z-index: 1;
   }
