@@ -34,7 +34,7 @@ app.get("/movies", function (req, res, next) {
       {
         id: 4,
         title: "Peakty Blinders",
-        src: "http://localhost:3000/movieCover/PeaktyBlinders.jpg",
+        src: "http://localhost:3000/movieCover/PeakyBlinders.jpg",
         descriptions:
           "Tommy Shelby (Cillian Murphy) jest weteranem wojennym i przywódcą niesławnego gangu Peaky Blinders, zwanego tak z powodu żyletek wszytych do czapek noszonych przez jego członków.",
       },
