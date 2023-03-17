@@ -2,7 +2,11 @@ import "./Movies.scss";
 import { useState, useEffect } from "react";
 
 const Movies = (props) => {
-  const [movie, setMovie] = useState([]);
+  const [orginal, setOrginal] = useState([]);
+  const [rated, setRated] = useState([]);
+  const [comedy, setComedy] = useState([]);
+  const [horror, setHorror] = useState([]);
+  const [action, setAction] = useState([]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -16,13 +20,11 @@ const Movies = (props) => {
         return;
       }
       const data = await response.json();
-
-      // const img = responseJSON.movies.src;
-      // const descriptions = responseJSON.movies.descriptions;
-      // if (!data?.movies) {
-      //   return;
-      // }
-      setMovie(data.movies);
+      setOrginal(data.orginal);
+      setRated(data.rated);
+      setComedy(data.comedy);
+      setHorror(data.horror);
+      setAction(data.action);
     };
 
     generateMovies();
@@ -30,13 +32,64 @@ const Movies = (props) => {
       controller.abort();
     };
   }, []);
-  console.log(movie);
 
   return (
     <section>
-      <h1 className="row__container-title">{props.title}</h1>
+      <h1 className="row__container-title">Orginalne seriale Netflix</h1>
       <div className="row__container">
-        {movie.map((items) => {
+        {orginal.map((items) => {
+          return (
+            <img
+              key={items.id}
+              alt="#"
+              className="row__container-img"
+              src={items.src}
+            ></img>
+          );
+        })}
+      </div>
+      <h1 className="row__container-title">Top 10 w Polsce</h1>
+      <div className="row__container">
+        {rated.map((items) => {
+          return (
+            <img
+              key={items.id}
+              alt="#"
+              className="row__container-img"
+              src={items.src}
+            ></img>
+          );
+        })}
+      </div>
+      <h1 className="row__container-title">Komedie</h1>
+      <div className="row__container">
+        {comedy.map((items) => {
+          return (
+            <img
+              key={items.id}
+              alt="#"
+              className="row__container-img"
+              src={items.src}
+            ></img>
+          );
+        })}
+      </div>
+      <h1 className="row__container-title">Horrory</h1>
+      <div className="row__container">
+        {horror.map((items) => {
+          return (
+            <img
+              key={items.id}
+              alt="#"
+              className="row__container-img"
+              src={items.src}
+            ></img>
+          );
+        })}
+      </div>
+      <h1 className="row__container-title">Akcje</h1>
+      <div className="row__container">
+        {action.map((items) => {
           return (
             <img
               key={items.id}

@@ -19,13 +19,7 @@ const HeroImg = () => {
         return;
       }
       const data = await response.json();
-
-      // const img = responseJSON.movies.src;
-      // const descriptions = responseJSON.movies.descriptions;
-      // if (!data?.movies) {
-      //   return;
-      // }
-      setMovies(data.movies[2]);
+      setMovies(data.orginal[0]);
     };
 
     generateMovies();
