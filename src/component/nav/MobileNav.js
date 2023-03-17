@@ -1,15 +1,11 @@
-import { BsJustify } from "react-icons/bs";
-import './MobileNav.scss'
-
+import "./MobileNav.scss";
+import Avatar1 from "../img/avatar1.png";
 
 const MobileNav = () => {
   return (
     <div className="nav__container">
-      <div className="nav__container-burger">
-      <BsJustify />
-      </div>
-      <span>Netflix</span>
-      <input className="nav__container-input" placeholder="Szukaj"></input>
+      <span className="nav__container-netflix">Netflix</span>
+      <img className="nav__container-avatar" src={Avatar1} alt="avatar"></img>
     </div>
   );
 };

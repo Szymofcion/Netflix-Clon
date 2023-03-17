@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,  } from "react";
 import "./HeroImg.scss";
 import { v4 as uuidv4 } from "uuid";
-
 const HeroImg = () => {
   const [movies, setMovies] = useState([]);
 
@@ -29,19 +28,22 @@ const HeroImg = () => {
   }, []);
 
   return (
-    <header className="container__img">
-      <img src={movies.src} className="hero-img" alt="okładka"></img>
-      <div className="container__img-content">
-        <h1>{movies.title}</h1>
-        <div className="container__img-buttons">
-          <button className="buttons-hero">Play</button>
-          <button className="buttons-hero">My list</button>
+
+      <header className="container__img">
+        <div className="container__img-content">
+          <h1>{movies.title}</h1>
+          <div className="container__img-buttons">
+            <button className="buttons-hero">Play</button>
+            <button className="buttons-hero">My list</button>
+          </div>
+          <div className="container__img-descriptions">
+            <span>{movies.descriptions}</span>
+          </div>
         </div>
-        <div className="container__img-descriptions">
-          <span>{movies.descriptions}</span>
-        </div>
-      </div>
-    </header>
+        <div className="shadow-bottom"></div>
+      </header>
+    
+
   );
 };
 
