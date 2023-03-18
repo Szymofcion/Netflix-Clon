@@ -3,9 +3,9 @@ import "./WelcomeText.scss";
 const WelcomeText = () => {
   return (
     <section className="container__main">
-      <h3 className="container__main-title">
+      <h4 className="container__main-title">
         Nieograniczona oferta filmów, seriali i programów.
-      </h3>
+      </h4>
       <p className="container__main-text">
         Oglądaj wszędzie. Możesz anulować w każdej chwili
       </p>

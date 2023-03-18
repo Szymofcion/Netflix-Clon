@@ -8,25 +8,24 @@
   z-index: 10;
 
   &__netflix {
-    color: red;
-    font-weight: bold;
-    font-size: 1rem;
-    z-index: 10;
+    width: 115px;
+    height: 44px;
+    color: tomato;
+    z-index: 15;
   }
 
   &__text {
-    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
     font-weight: bold;
     z-index: 10;
     color: #fff;
     text-decoration: none;
   }
-
-  &__tools {
-    font-size: 1.1rem;
-    font-weight: bold;
-    transform: rotate(90deg);
-    z-index: 10;
+  &__text:hover {
     color: gray;
+    transition: all 0.3s;
   }
 }

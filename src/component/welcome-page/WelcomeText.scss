@@ -3,17 +3,19 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 90%;
+  height: 79vh;
   text-align: center;
 
   &-title {
-    font-size: 2rem;
+    margin: 0 1em;
+    font-size: 1.4rem;
     color: #fff;
     z-index: 1;
   }
 
   &-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin: 1em 1em;
     z-index: 1;
     color: gray;
   }
