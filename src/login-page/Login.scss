@@ -1,18 +1,13 @@
 a {
   text-decoration: none;
 }
-
-
-
 .login {
   background-color: black;
   height: 100vh;
   overflow: hidden;
 
   .login-nav {
-    margin: 1em;
-    display: flex;
-    align-items: center;
+    margin: 1em 1em;
   }
 
   .back-arrow {
@@ -28,21 +23,22 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   text-align: center;
   height: 100%;
   color: #fff;
 
   &-netflix {
-    color: red;
-    text-transform: uppercase;
-    margin-left: 0.3em;
-    font-size: 2rem;
+    width: 300px;
+    height: 110px;
+    color: tomato;
+    z-index: 15;
   }
 
   &-input {
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 0 1em;
 
     &--style {
       background-color: rgba(128, 128, 128, 0.37);
@@ -55,18 +51,25 @@ a {
 
   &-button {
     &--style {
+      cursor: pointer;
       margin-top: 1em;
       width: 100%;
-      padding: 1em;
+      padding: 1.2em;
       background-color: black;
       color: #fff;
       border: 1px solid gray;
       border-radius: 8px;
     }
+    &--style:hover {
+      color: black;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
   }
 
   &-help {
     color: gray;
+    margin-bottom: 0;
   }
 
   &-signUp {
@@ -80,5 +83,6 @@ a {
     background: none;
     border: none;
     color: #fff;
+    padding-bottom: 5em;
   }
 }

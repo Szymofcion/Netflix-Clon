@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { BsArrowLeftShort } from "react-icons/bs";
-
+import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
 const Login = () => {
@@ -13,9 +12,9 @@ const Login = () => {
             <BsArrowLeftShort />
           </button>
         </Link>
-        <span className="login__container-netflix">Netflix</span>
       </nav>
       <main className="login__container">
+        <img src={netflixTitle} className="login__container-netflix" alt="logo netflix"></img>
         <div className="login__container-input">
           <input
             className="login__container-input--style"
