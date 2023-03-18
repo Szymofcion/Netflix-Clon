@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 
 import { BsArrowLeftShort } from "react-icons/bs";
 import avatar1 from "../img/avatar1.png";
@@ -7,8 +7,9 @@ import avatar3 from "../img/avatar3.png";
 import avatar4 from "../img/avatar4.png";
 import "./ModalNewUser.scss";
 
-const ModalNewUser = ({ closeModal, }) => {
-  const [enteredImage, setEnteredImage] = useState();
+const ModalNewUser = ({ closeModal }) => {
+  const [enteredImage, setEnteredImage] = useState("");
+
   const avatarImg = [
     {
       id: 1,
@@ -25,26 +26,25 @@ const ModalNewUser = ({ closeModal, }) => {
     {
       id: 4,
       img: avatar4,
-    }]
-
-
-  const uploadAvatar = () => {
-    setEnteredImage(avatarImg.map())
-    console.log(setEnteredImage);
-
-  }
-
-  console.log(enteredImage);
-
+    },
+  ];
+  
+  const saveImage = (e) => {
+    console.log(e.target);
+    setEnteredImage(e.target);
+  };
 
   const closeModalBtn = () => {
-    closeModal((prev => !prev))
-  }
-
+    closeModal(false);
+  };
 
   return (
-    <form className="container__modal" >
-
+    <div
+      className="container__modal"
+      onClick={() => {
+        closeModalBtn();
+      }}
+    >
       <div className="container__modal-newUser">
         <button onClick={closeModalBtn} className="container__modal-arrow">
           <BsArrowLeftShort />
@@ -52,28 +52,22 @@ const ModalNewUser = ({ closeModal, }) => {
         <div className="container__modal-newImg">
           <h2> Wybierz avatar </h2>
           <div className="container__modal-avatar">
-            <button onClick={''} >
-              <img id="1" className="container__modal-img" src={enteredImage} alt="" />
-            </button>
-          </div>
-          <div className="container__modal-avatar">
-            <button>
-              <img id="2" className="container__modal-img" src={avatar2} alt="" />
-            </button>
-          </div>
-          <div className="container__modal-avatar">
-            <button>
-              <img id="3" className="container__modal-img" src={avatar3} alt="" />
-            </button>
-          </div>
-          <div className="container__modal-avatar">
-            <button>
-              <img id="4" className="container__modal-img" src={avatar4} alt="" />
-            </button>
+            {avatarImg.map((item) => (
+              <div>
+                <button onClick={saveImage}>
+                  <img
+                    key={item.id}
+                    className="container__modal-img"
+                    src={item.img}
+                    alt="avatar"
+                  />
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

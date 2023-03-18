@@ -8,11 +8,10 @@
   z-index: 1;
   &-avatar {
     width: 45px;
-    margin: 0.5em;
   }
   &-netflix {
-    display: flex;
-    align-items: center;
-    margin: 0.5em;
+    width: 115px;
+    height: 44px;
+    z-index: 15;
   }
 }

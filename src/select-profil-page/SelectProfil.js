@@ -4,7 +4,8 @@ import Avatar from "../component/ui/Avatar";
 import AddNewProfil from "../component/ui/AddNewProfil";
 import ModalNewUser from "../component/ui/ModalNewUser";
 
-import avatar1 from '../component/img/avatar1.png'
+import netflixTitle from "../component/img/netflixTitle.png";
+import avatar1 from "../component/img/avatar1.png";
 import avatar2 from "../component/img/avatar2.png";
 import avatar3 from "../component/img/avatar3.png";
 import avatar4 from "../component/img/avatar4.png";
@@ -39,14 +40,18 @@ const SelectProfil = () => {
   };
 
   const openModalBtn = () => {
-    setOpenModal((prev) => !prev);
+    setOpenModal(true);
   };
 
   return (
     <section className="select__container overflow">
-      {openModal && <ModalNewUser closeModal={openModal} />}
+      {openModal && <ModalNewUser closeModal={setOpenModal} />}
       <div className="select__container-nav">
-        <span className="netflix-text">Netflix</span>
+        <img
+          src={netflixTitle}
+          className="netflix-text"
+          alt="netflix logo"
+        ></img>
         <button onClick={visibleRemoveButton} className="pen">
           <BsFillPencilFill />
         </button>
