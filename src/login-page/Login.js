@@ -9,7 +9,7 @@ import ButtonLogin from "./ButtonLogin";
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({ login: "", password: "" });
   const onChangeLogin = (e) => {
     setFormData({ ...formData, login: e.target.value });
@@ -18,9 +18,11 @@ const Login = () => {
     setFormData({ ...formData, password: e.target.value });
   };
   const onClick = (e) => {
-    e.preventDefault();
-    console.log("click");
-    console.log("password:", formData.password);
+    if (formData.login === "admin" && formData.password === "admin")
+      e.preventDefault();
+    onLogin({ name: formData.login });
+    // console.log("click");
+    // console.log("password:", formData.password);
   };
   return (
     <section className="login">
@@ -44,11 +46,10 @@ const Login = () => {
               value={formData.password}
               onChange={onChangePassword}
             />
-            <ButtonLogin onClick={onClick} />
+       {     <Link to="/selectProfil">
+              <ButtonLogin onClick={onClick} />
+            </Link>}
           </div>
-
-          {/* <Link onClick={loggin} to="/selectProfil">
-          </Link> */}
 
           <p className="login__container-help">Potrzebujesz pomocy?</p>
           <Link to="/">
