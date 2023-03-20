@@ -1,16 +1,19 @@
-import 
 
-const InputLogin = () => {
-  const [login, setLogin] = useState("");
-  const onChange = (e) => {};
+
+import "./InputLogin.scss";
+
+const InputLogin = ({ value, onChange }) => {
   return (
-    <div>
+    <div className="input__containter">
       <input
-        className="login__container-input--style"
-        placeholder="Hasło"
+        className="login__container-input--style input--color"
+        placeholder="Login"
         type="text"
-        value={textValue}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
 };
+
+export default InputLogin;

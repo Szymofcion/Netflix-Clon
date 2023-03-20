@@ -39,34 +39,13 @@ a {
     display: flex;
     flex-direction: column;
     padding: 0 1em;
-
     &--style {
-      background-color: rgba(128, 128, 128, 0.37);
-      padding: 1.5em;
-      margin-bottom: 1em;
-      border-radius: 8px;
-      border: none;
-    }
-  }
-
-  &-button {
-    &--style {
-      cursor: pointer;
-      margin-top: 1em;
       width: 100%;
-      padding: 1.2em;
-      background-color: black;
-      color: #fff;
-      border: 1px solid gray;
-      border-radius: 8px;
     }
-    &--style:hover {
-      color: black;
-      background-color: #fff;
-      transition: all 0.3s;
+    ::placeholder {
+      padding: 1em;
     }
   }
-
   &-help {
     color: gray;
     margin-bottom: 0;

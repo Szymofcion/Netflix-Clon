@@ -1,16 +1,27 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
+
+import InputLogin from "./InputLogi";
+import InputPassword from "./InputPassword";
+import ButtonLogin from "./ButtonLogin";
+
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
-import { useState } from "react";
 
 const Login = () => {
-  const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({ login: "", password: "" });
-  const loggin = () => {
-    console.log("click");
+  const onChangeLogin = (e) => {
+    setFormData({ ...formData, login: e.target.value });
   };
-
+  const onChangePassword = (e) => {
+    setFormData({ ...formData, password: e.target.value });
+  };
+  const onClick = (e) => {
+    e.preventDefault();
+    console.log("click");
+    console.log("password:", formData.password);
+  };
   return (
     <section className="login">
       <nav className="login-nav">
@@ -27,19 +38,15 @@ const Login = () => {
           alt="logo netflix"
         ></img>
         <form className="login__container-input">
-          <input
-            className="login__container-input--style"
-            placeholder="Login"
-            type="text"
-          />
-          <input
-            className="login__container-input--style"
-            placeholder="Hasło"
-            type="text"
-          />
-          <button onClick={loggin} className="login__container-button--style">
-            Zaloguj się
-          </button>
+          <div className="login__container-input--style">
+            <InputLogin value={formData.login} onChange={onChangeLogin} />
+            <InputPassword
+              value={formData.password}
+              onChange={onChangePassword}
+            />
+            <ButtonLogin onClick={onClick} />
+          </div>
+
           {/* <Link onClick={loggin} to="/selectProfil">
           </Link> */}
 
