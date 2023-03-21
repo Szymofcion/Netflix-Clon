@@ -1,11 +1,53 @@
+require("dotenv").config();
+
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const dir = path.join(__dirname, "movieCover");
+// const dotenv = dotenv.config()
+
+const jwt = require("jsonwebtoken");
+// const User = require("./userModel");
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
+
+app.get("/api/users", (req, res) => {
+  const users = [{ id: 1, name: "Daria" }];
+
+  res.send(users);
+});
+
+app.post("/api/auth/login", authenticate, (req, res) => {
+  const login = req.body.email;
+  const password = req.body.password;
+
+  const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
+    expiresIn: 86400,
+  });
+  const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: 525600,
+  });
+
+  res.send({ accessToken, refreshToken });
+});
+
+function authenticate(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token === null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+
+    req.user = user;
+    next();
+  });
+}
 
 app.get("/movies", function (req, res, next) {
   res.json({
@@ -306,5 +348,5 @@ app.get("/img", function (req, res, next) {
 });
 
 app.listen(3000, function () {
-  console.log("CORS-enabled web server listening on port 3000");
+  console.log("Server start on port 3000");
 });
