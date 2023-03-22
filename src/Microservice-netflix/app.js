@@ -22,8 +22,8 @@ app.get("/api/users", (req, res) => {
 });
 
 app.post("/api/auth/login", authenticate, (req, res) => {
-  const login = req.body.email;
-  const password = req.body.password;
+  // const login = req.body.email;
+  // const password = req.body.password;
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
     expiresIn: 86400,
