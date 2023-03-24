@@ -1,0 +1,67 @@
+a {
+  text-decoration: none;
+}
+.login {
+  background-color: black;
+  height: 100vh;
+  overflow: hidden;
+
+  .login-nav {
+    margin: 1em 1em;
+  }
+
+  .back-arrow {
+    background-color: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+  }
+}
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  color: #fff;
+
+  &-netflix {
+    width: 300px;
+    height: 110px;
+    color: tomato;
+    z-index: 15;
+  }
+
+  &-input {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+    &--style {
+      width: 100%;
+    }
+    ::placeholder {
+      padding: 1em;
+    }
+  }
+  &-help {
+    color: gray;
+    margin-bottom: 0;
+  }
+
+  &-signUp {
+    color: rgb(172, 172, 172);
+  }
+
+  &-description {
+    color: gray;
+    font-size: 0.7rem;
+    background-color: none;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-bottom: 5em;
+  }
+}
