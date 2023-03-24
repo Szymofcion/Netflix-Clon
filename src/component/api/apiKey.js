@@ -1,1 +1,0 @@
-export const apiKey = 'k_nc812076'
