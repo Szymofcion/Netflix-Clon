@@ -9,7 +9,7 @@
 }
 
 .container__heroImg {
-  background-color: red;
+background-color: red;
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -17,6 +17,11 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-
   object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .container__heroImg {
+   background-size: 100% auto;
+  }
 }

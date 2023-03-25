@@ -1,17 +1,48 @@
+.shadow-nav {
+  background: rgba(0, 0, 0, 0.767);
+  transition:  0.5s;
+}
 
 .nav__container {
   position: fixed;
   top: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  background: rgba(0, 0, 0, 0.384);
+  justify-content: space-around;
+  align-items: center;
   z-index: 1;
+
   &-avatar {
     width: 45px;
   }
+
   &-netflix {
     width: 115px;
     height: 44px;
     z-index: 15;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .nav__container {
+    height: 3.5em;
+
+    &-avatar {
+      height: 50px;
+      width: 50px;
+    }
+
+    &-netflix {
+      width: 115px;
+      height: 44px;
+      z-index: 15;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav__container {
+    height: 4em;
   }
 }

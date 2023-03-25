@@ -1,6 +1,4 @@
 import { Route, Switch,BrowserRouter } from "react-router-dom";
-
-
 import Welcome from "./component/welcome-page/Welcome";
 import Login from "./login-page/Login";
 import SelectProfil from "./select-profil-page/SelectProfil";

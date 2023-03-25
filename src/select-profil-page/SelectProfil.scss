@@ -1,6 +1,6 @@
 .netflix-text {
-  width: 115px;
-  height: 44px;
+  width: 300px;
+  height: 120px;
   z-index: 15;
 }
 
@@ -57,5 +57,14 @@
       display: flex;
       justify-content: center;
     }
+  }
+}
+
+@media (min-width: 992px) {
+  .netflix-text {
+    padding-top: 2em;
+    width: 500px;
+    height: 190px;
+    z-index: 15;
   }
 }

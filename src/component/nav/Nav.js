@@ -2,11 +2,11 @@ import MobileNav from "./MobileNav";
 
 import "./Nav.scss";
 
-const Nav = ({user, logout}) => {
+const Nav = ({ user, logout }) => {
   return (
     <nav className="nav__container">
       <MobileNav user={user} logout={logout} />
-      <div className="nav__container-desktop">
+      {/* <div className="nav__container-desktop">
         <div className="nav_container-list">
           <span>Netlix</span>
           <a href="a">Strona główna</a>
@@ -16,7 +16,7 @@ const Nav = ({user, logout}) => {
         <div className="nav_container-options">
           <span>lupa profil</span>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };
