@@ -15,18 +15,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
 
-app.get("/api/users", (req, res) => {
+app.get("/api/users", authenticate, (req, res) => {
   const users = [{ id: 1, name: "Daria" }];
 
   res.send(users);
 });
 
-app.post("/api/auth/login", authenticate, (req, res) => {
-  // const login = req.body.email;
-  // const password = req.body.password;
+app.post("/api/auth/login", (req, res) => {
+  const login = req.body.login;
+  const password = req.body.password;
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
-    expiresIn: 86400,
+    expiresIn: 20,
   });
   const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: 525600,
@@ -34,6 +34,8 @@ app.post("/api/auth/login", authenticate, (req, res) => {
 
   res.send({ accessToken, refreshToken });
 });
+
+app.post('/api/auth/refresh')
 
 function authenticate(req, res, next) {
   const authHeader = req.headers["authorization"];
