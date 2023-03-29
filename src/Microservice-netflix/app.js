@@ -35,7 +35,23 @@ app.post("/api/auth/login", (req, res) => {
   res.send({ accessToken, refreshToken });
 });
 
-app.post('/api/auth/refresh')
+app.post("/api/auth/refresh", async (req, res) => {
+  const refreshToken = req.body.token;
+
+  if (!refreshToken) {
+    return res.status(401);
+  }
+
+  try {
+    await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+  } catch (err) {
+    return res.sendStatus(403);
+  }
+  const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
+    expiresIn: 86400,
+  });
+  res.send({ accessToken });
+});
 
 function authenticate(req, res, next) {
   const authHeader = req.headers["authorization"];

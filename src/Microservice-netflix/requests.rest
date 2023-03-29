@@ -15,3 +15,13 @@ content-type: "application/json"
     "login" : "daria",
     "password" : "123"
 }
+
+###
+
+POST http://localhost:3000/api/auth/refresh
+Content-Type: application/json
+
+{
+    "token":
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjgwMDkxOTI0LCJleHAiOjE2ODA2MTc1MjR9.tN5o2FfUJmO_vcNt0w7r-FkANv0Xj354E5MC7gRvqJE"
+}
