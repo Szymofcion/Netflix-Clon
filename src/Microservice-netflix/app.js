@@ -1,17 +1,17 @@
-require("dotenv").config();
-
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const dir = path.join(__dirname, "movieCover");
-// const dotenv = dotenv.config()
 
 const jwt = require("jsonwebtoken");
-// const User = require("./userModel");
+const cookieParser = require("cookie-parser");
+
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
 
@@ -30,6 +30,11 @@ app.post("/api/auth/login", (req, res) => {
   });
   const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: 525600,
+  });
+
+  res.cookie("JWT", accessToken, {
+    maxAge: 86400000,
+    httpOnly: true,
   });
 
   res.send({ accessToken, refreshToken });
@@ -54,8 +59,10 @@ app.post("/api/auth/refresh", async (req, res) => {
 });
 
 function authenticate(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  // const authHeader = req.headers["authorization"];
+  // const token = authHeader && authHeader.split(" ")[1];
+
+  const token = req.cookies.JWT;
 
   if (token === null) return res.sendStatus(401);
 
