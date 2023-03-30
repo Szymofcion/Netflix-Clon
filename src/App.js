@@ -1,5 +1,6 @@
-import { Route, Switch,BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Welcome from "./component/welcome-page/Welcome";
+import Registration from "./registration-page/Registration";
 import Login from "./login-page/Login";
 import SelectProfil from "./select-profil-page/SelectProfil";
 import Main from "./main-page/Main";
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route path="/selectProfil">
           <SelectProfil />
+       
         </Route>
         <Route path="/login">
           <Login user={user} onLogin={onLogin} />
@@ -26,9 +28,13 @@ function App() {
         <Route path="/main">
           <Main user={user} logout={onLogout} />
         </Route>
+        <Route path="/registraion">
+          <Registration />
+        </Route>
         <Route path="/">
           <Welcome />
         </Route>
+        
       </Switch>
     </BrowserRouter>
   );

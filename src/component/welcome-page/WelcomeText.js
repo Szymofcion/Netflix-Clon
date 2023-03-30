@@ -1,4 +1,5 @@
 import "./WelcomeText.scss";
+import WelcomeButtom from './WelcomeButton'
 
 const WelcomeText = () => {
   return (
@@ -9,7 +10,7 @@ const WelcomeText = () => {
       <p className="container__main-text">
         Oglądaj wszędzie. Możesz anulować w każdej chwili
       </p>
-      <button className="container__main-button">Zacznij</button>
+      <WelcomeButtom/>
     </section>
   );
 };
