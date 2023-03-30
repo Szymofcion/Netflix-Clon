@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
+import axios from "../component/api/axios";
 import InputLogin from "./InputLogi";
 import InputPassword from "./InputPassword";
 import ButtonLogin from "./ButtonLogin";
@@ -10,20 +11,31 @@ import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
 const Login = ({ onLogin }) => {
-  const [formData, setFormData] = useState({ login: "", password: "" });
-  const onChangeLogin = (e) => {
-    setFormData({ ...formData, login: e.target.value });
-  };
-  const onChangePassword = (e) => {
-    setFormData({ ...formData, password: e.target.value });
-  };
-  const onClick = (e) => {
-    if (formData.login === "admin" && formData.password === "admin")
-      e.preventDefault();
-    onLogin({ name: formData.login });
-    // console.log("click");
-    // console.log("password:", formData.password);
-  };
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const getUsers = async () => {
+      try {
+        const response = await axios.post("/api/users", {
+          signal: controller.signal,
+        });
+
+        console.log(response.users);
+        isMounted && setUsers(response.users);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getUsers();
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
+
   return (
     <section className="login">
       <nav className="login-nav">
@@ -41,14 +53,13 @@ const Login = ({ onLogin }) => {
         ></img>
         <form className="login__container-input">
           <div className="login__container-input--style">
-            <InputLogin value={formData.login} onChange={onChangeLogin} />
-            <InputPassword
-              value={formData.password}
-              onChange={onChangePassword}
-            />
-       {     <Link to="/selectProfil">
-              <ButtonLogin onClick={onClick} />
-            </Link>}
+            <InputLogin />
+            <InputPassword />
+            {
+              // <Link to="/selectProfil">
+              <ButtonLogin />
+              // </Link>
+            }
           </div>
 
           <p className="login__container-help">Potrzebujesz pomocy?</p>
