@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
+
+
 import axios from "../component/api/axios";
 import InputLogin from "./InputLogi";
 import InputPassword from "./InputPassword";
@@ -10,8 +12,14 @@ import ButtonLogin from "./ButtonLogin";
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
-const Login = ({ onLogin }) => {
+
+const Login = () => {
   const [users, setUsers] = useState();
+  const [login, setLogin] = useState();
+  const [password, setPassword] = useState();
+
+  // const navigate = useNavigate();
+
 
   useEffect(() => {
     let isMounted = true;
@@ -19,11 +27,11 @@ const Login = ({ onLogin }) => {
 
     const getUsers = async () => {
       try {
-        const response = await axios.post("/api/users", {
+        const response = await axios.post("/api/auth/login", {
           signal: controller.signal,
         });
 
-        console.log(response.users);
+        console.log(response.data);
         isMounted && setUsers(response.users);
       } catch (err) {
         console.error(err);
@@ -51,13 +59,13 @@ const Login = ({ onLogin }) => {
           className="login__container-netflix"
           alt="logo netflix"
         ></img>
-        <form className="login__container-input">
+        <form  className="login__container-input">
           <div className="login__container-input--style">
-            <InputLogin />
-            <InputPassword />
+            <InputLogin value={login} onChange={(e)=> setLogin(e.target.value)} />
+            <InputPassword value={password} onChange={(e)=> setPassword(e.target.value)} />
             {
               // <Link to="/selectProfil">
-              <ButtonLogin />
+              <ButtonLogin type="submit" />
               // </Link>
             }
           </div>

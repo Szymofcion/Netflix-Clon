@@ -26,7 +26,7 @@ app.post("/api/auth/login", (req, res) => {
   const password = req.body.password;
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
-    expiresIn: 20,
+    expiresIn: 300,
   });
   const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: 525600,
