@@ -16,14 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
 
 app.get("/api/users", authenticate, (req, res) => {
-  const users = [{ id: 1, name: "Daria" }];
+  const users = [{id:'1', login: "Daria", password: "123" }];
 
-  res.send(users);
+  res.json(users);
 });
 
-app.post("/api/auth/login", (req, res) => {
-  const login = req.body.login;
-  const password = req.body.password;
+app.post("/api/auth/login", async (req, res) => {
+  const user = ({ login, password } = req.body);
+  login = login.trim();
+  password = password.trim();
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
     expiresIn: 300,

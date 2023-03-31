@@ -10,45 +10,52 @@ import ButtonLogin from "./ButtonLogin";
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
-const Login = () => {
-  const [formData, setFormData] = useState({ login: "", password: "" });
+const Login = ({ onLogin }) => {
+  // const [formData, setFormData] = useState({ login: "", password: "" });
+  const [token, setToken] = useState();
 
-  // const navigate = useNavigate();
+  // const login = (e) => {
+  //   e.preventDefault();
+  //   if (formData.login === "Daria" && formData.password === "123")
+  //     onLogin({ name: formData.login });
+  //   console.log(formData.login, formData.password);
+  // };
 
-  const login = (e) => {
-    e.preventDefault();
-    console.log(formData.login, formData.password);
-  };
+  // const onChangeLogin = (e) => {
+  //   setFormData({ ...formData, login: e.target.value });
+  // };
+  // const onChangePassword = (e) => {
+  //   setFormData({ ...formData, password: e.target.value });
+  // };
 
-  const onChangeLogin = (e) => {
-    setFormData({ ...formData, login: e.target.value });
-  };
-  const onChangePassword = (e) => {
-    setFormData({ ...formData, password: e.target.value });
-  };
+  useEffect(() => {
+    const controller = new AbortController();
 
-  // useEffect(() => {
-  //   let isMounted = true;
-  //   const controller = new AbortController();
+    const getJWT = async () => {
+      try {
+        const response = await axios.post("/api/auth/login", {
+          signal: controller.signal,
+        });
 
-  //   const getUsers = async () => {
-  //     try {
-  //       const response = await axios.post("/api/auth/login", {
-  //         signal: controller.signal,
-  //       });
+        console.log(response.data);
+        setToken(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getJWT();
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
-  //       console.log(response.data);
-  //       isMounted && setNick(response.users);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-  //   getUsers();
-  //   return () => {
-  //     isMounted = false;
-  //     controller.abort();
-  //   };
-  // }, []);
+  axios.post("/api/users", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    
+    
+  });
 
   return (
     <section className="login">
@@ -67,14 +74,11 @@ const Login = () => {
         ></img>
         <form className="login__container-input">
           <div className="login__container-input--style">
-            <InputLogin value={formData.login} onChange={onChangeLogin} />
-            <InputPassword
-              value={formData.password}
-              onChange={onChangePassword}
-            />
+            <InputLogin />
+            <InputPassword />
             {
               // <Link to="/selectProfil">
-              <ButtonLogin onClick={login} />
+              <ButtonLogin />
               // </Link>
             }
           </div>

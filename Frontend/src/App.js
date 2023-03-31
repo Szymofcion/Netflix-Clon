@@ -11,22 +11,18 @@ function App() {
   const onLogin = (user) => {
     setUser(user);
   };
-  const onLogout = () => {
-    setUser();
-  };
+  // const onLogout = () => {
+  //   setUser();
+  // };
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/selectProfil">
-          <SelectProfil />
-       
-        </Route>
         <Route path="/login">
-          <Login user={user} onLogin={onLogin} />
+          {user ? <SelectProfil user={user} /> : <Login onLogin={onLogin} />}
         </Route>
         <Route path="/main">
-          <Main user={user} logout={onLogout} />
+          <Main />
         </Route>
         <Route path="/registraion">
           <Registration />
@@ -34,7 +30,6 @@ function App() {
         <Route path="/">
           <Welcome />
         </Route>
-        
       </Switch>
     </BrowserRouter>
   );
