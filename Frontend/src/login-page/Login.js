@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
-
-
 import axios from "../component/api/axios";
 import InputLogin from "./InputLogi";
 import InputPassword from "./InputPassword";
@@ -12,37 +10,45 @@ import ButtonLogin from "./ButtonLogin";
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
-
 const Login = () => {
-  const [users, setUsers] = useState();
-  const [login, setLogin] = useState();
-  const [password, setPassword] = useState();
+  const [formData, setFormData] = useState({ login: "", password: "" });
 
   // const navigate = useNavigate();
 
+  const login = (e) => {
+    e.preventDefault();
+    console.log(formData.login, formData.password);
+  };
 
-  useEffect(() => {
-    let isMounted = true;
-    const controller = new AbortController();
+  const onChangeLogin = (e) => {
+    setFormData({ ...formData, login: e.target.value });
+  };
+  const onChangePassword = (e) => {
+    setFormData({ ...formData, password: e.target.value });
+  };
 
-    const getUsers = async () => {
-      try {
-        const response = await axios.post("/api/auth/login", {
-          signal: controller.signal,
-        });
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   const controller = new AbortController();
 
-        console.log(response.data);
-        isMounted && setUsers(response.users);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getUsers();
-    return () => {
-      isMounted = false;
-      controller.abort();
-    };
-  }, []);
+  //   const getUsers = async () => {
+  //     try {
+  //       const response = await axios.post("/api/auth/login", {
+  //         signal: controller.signal,
+  //       });
+
+  //       console.log(response.data);
+  //       isMounted && setNick(response.users);
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+  //   getUsers();
+  //   return () => {
+  //     isMounted = false;
+  //     controller.abort();
+  //   };
+  // }, []);
 
   return (
     <section className="login">
@@ -59,13 +65,16 @@ const Login = () => {
           className="login__container-netflix"
           alt="logo netflix"
         ></img>
-        <form  className="login__container-input">
+        <form className="login__container-input">
           <div className="login__container-input--style">
-            <InputLogin value={login} onChange={(e)=> setLogin(e.target.value)} />
-            <InputPassword value={password} onChange={(e)=> setPassword(e.target.value)} />
+            <InputLogin value={formData.login} onChange={onChangeLogin} />
+            <InputPassword
+              value={formData.password}
+              onChange={onChangePassword}
+            />
             {
               // <Link to="/selectProfil">
-              <ButtonLogin type="submit" />
+              <ButtonLogin onClick={login} />
               // </Link>
             }
           </div>

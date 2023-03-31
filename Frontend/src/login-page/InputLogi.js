@@ -8,7 +8,7 @@ const InputLogin = ({ value, onChange }) => {
       <input
         className="login__container-input--style input--color"
         placeholder="Login"
-        type="text"
+        type="login"
         value={value}
         onChange={onChange}
       />
