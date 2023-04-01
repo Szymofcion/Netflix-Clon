@@ -1,6 +1,6 @@
 {
   "name": "netflix-clon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "conventional-changelog-cli": "^2.2.2",
     "husky": "^8.0.3"
   }
 }
