@@ -1,51 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
+import refreshSession from "../utils/refreshSession";
 import InputLogin from "./InputLogi";
 import InputPassword from "./InputPassword";
 import ButtonLogin from "./ButtonLogin";
-
 import netflixTitle from "../component/img/netflixTitle.png";
+
 import "./Login.scss";
-
-const refreshToken = async () => {
-  const refreshToken = localStorage.getItem("refreshToken");
-
-  if (!refreshToken) {
-    return false;
-  }
-
-  const refreshResponse = await fetch(
-    "http://localhost:3000/api/auth/refresh",
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify({
-        refreshToken,
-      }),
-    }
-  );
-
-  if (!refreshResponse.ok) {
-    return false;
-  }
-
-  const data = await refreshResponse.json();
-
-  if (data.refreshToken) {
-    localStorage.setItem("refreshToken", data.refreshToken);
-  }
-
-  if (data.accessToken) {
-    sessionStorage.setItem("accessToken", data.accessToken);
-    return true;
-  }
-
-  return false;
-};
 
 const getUsers = async () => {
   try {
@@ -58,7 +20,7 @@ const getUsers = async () => {
 
     if (!response.ok) {
       if (response.status === 403) {
-        const sessionUpdated = await refreshToken();
+        const sessionUpdated = await refreshSession();
 
         if (sessionUpdated) {
           return getUsers();
