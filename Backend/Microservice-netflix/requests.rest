@@ -12,7 +12,7 @@ content-type: "application/json"
 
 {
     "login" : "daria",
-    "password" : "13"
+    "password" : "123"
 }
 
 ###

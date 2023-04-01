@@ -16,59 +16,66 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
 
 app.get("/api/users", authenticate, (req, res) => {
-  const users = [{id:'1', login: "Daria", password: "123" }];
+  const users = [{ id: "1", login: "Daria", password: "123" }];
 
   res.json(users);
 });
 
 app.post("/api/auth/login", async (req, res) => {
-  const user = ({ login, password } = req.body);
-  login = login.trim();
-  password = password.trim();
+  const { login, password } = req.body;
+
+  if (login !== "Daria" || password !== "123") {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
-    expiresIn: 300,
+    expiresIn: "5m",
   });
+
   const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: 525600,
+    expiresIn: "1d",
   });
 
-  res.cookie("JWT", accessToken, {
-    maxAge: 86400000,
-    httpOnly: true,
-  });
-
-  res.send({ accessToken, refreshToken });
+  return res.send({ accessToken, refreshToken });
 });
 
 app.post("/api/auth/refresh", async (req, res) => {
-  const refreshToken = req.body.token;
+  const { refreshToken } = req.body;
 
   if (!refreshToken) {
-    return res.status(401);
+    return res.status(401).send({ message: "Unauthorized" });
   }
 
   try {
     await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
   } catch (err) {
-    return res.sendStatus(403);
+    return res.status(403).send({ message: "Forbidden" });
   }
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
-    expiresIn: 86400,
+    expiresIn: "5m",
   });
-  res.send({ accessToken });
+
+  const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: "1d",
+  });
+
+  res.send({ accessToken, refreshToken });
 });
 
 function authenticate(req, res, next) {
-  // const authHeader = req.headers["authorization"];
-  // const token = authHeader && authHeader.split(" ")[1];
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
-  const token = req.cookies.JWT;
-
-  if (token === null) return res.sendStatus(401);
+  if (token === null) {
+    return res.status(401).send({ message: "Unauthorized" });
+  }
 
   jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
+    console.log(err);
+
+    if (err) {
+      return res.status(403).send({ message: "Forbidden" });
+    }
 
     req.user = user;
     next();

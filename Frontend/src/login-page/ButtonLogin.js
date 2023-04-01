@@ -1,8 +1,8 @@
 import "./ButtonLogin.scss";
-const ButtonLogin = ({ onClick }) => {
+const ButtonLogin = () => {
   return (
     <div>
-      <button onClick={onClick} className="login__container-button--style">
+      <button type="submit" className="login__container-button--style">
         Zaloguj się
       </button>
     </div>

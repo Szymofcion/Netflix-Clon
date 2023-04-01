@@ -1,16 +1,13 @@
-
-
 import "./InputLogin.scss";
 
-const InputLogin = ({ value, onChange }) => {
+const InputLogin = () => {
   return (
     <div className="input__containter">
       <input
         className="login__container-input--style input--color"
         placeholder="Login"
         type="login"
-        value={value}
-        onChange={onChange}
+        name="login"
       />
     </div>
   );

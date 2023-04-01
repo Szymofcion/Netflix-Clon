@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
-import axios from "../component/api/axios";
 import InputLogin from "./InputLogi";
 import InputPassword from "./InputPassword";
 import ButtonLogin from "./ButtonLogin";
@@ -10,52 +9,112 @@ import ButtonLogin from "./ButtonLogin";
 import netflixTitle from "../component/img/netflixTitle.png";
 import "./Login.scss";
 
-const Login = ({ onLogin }) => {
-  // const [formData, setFormData] = useState({ login: "", password: "" });
-  const [token, setToken] = useState();
+const refreshToken = async () => {
+  const refreshToken = localStorage.getItem("refreshToken");
 
-  // const login = (e) => {
-  //   e.preventDefault();
-  //   if (formData.login === "Daria" && formData.password === "123")
-  //     onLogin({ name: formData.login });
-  //   console.log(formData.login, formData.password);
-  // };
+  if (!refreshToken) {
+    return false;
+  }
 
-  // const onChangeLogin = (e) => {
-  //   setFormData({ ...formData, login: e.target.value });
-  // };
-  // const onChangePassword = (e) => {
-  //   setFormData({ ...formData, password: e.target.value });
-  // };
+  const refreshResponse = await fetch(
+    "http://localhost:3000/api/auth/refresh",
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        refreshToken,
+      }),
+    }
+  );
 
-  useEffect(() => {
-    const controller = new AbortController();
+  if (!refreshResponse.ok) {
+    return false;
+  }
 
-    const getJWT = async () => {
-      try {
-        const response = await axios.post("/api/auth/login", {
-          signal: controller.signal,
-        });
+  const data = await refreshResponse.json();
 
-        console.log(response.data);
-        setToken(response.data);
-      } catch (err) {
-        console.error(err);
+  if (data.refreshToken) {
+    localStorage.setItem("refreshToken", data.refreshToken);
+  }
+
+  if (data.accessToken) {
+    sessionStorage.setItem("accessToken", data.accessToken);
+    return true;
+  }
+
+  return false;
+};
+
+const getUsers = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/users", {
+      headers: {
+        Authorization: "Bearer " + sessionStorage.getItem("accessToken"),
+      },
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      if (response.status === 403) {
+        const sessionUpdated = await refreshToken();
+
+        if (sessionUpdated) {
+          return getUsers();
+        }
       }
-    };
-    getJWT();
-    return () => {
-      controller.abort();
-    };
-  }, []);
 
-  axios.post("/api/users", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    
-    
-  });
+      return false;
+    }
+
+    const users = await response.json();
+    console.log({ users });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const Login = ({ onLogin }) => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    console.log(formData.get("login"));
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          login: formData.get("login"),
+          password: formData.get("password"),
+        }),
+      });
+
+      if (!response.ok) {
+        return false;
+      }
+
+      const data = await response.json();
+
+      if (data.refreshToken) {
+        localStorage.setItem("refreshToken", data.refreshToken);
+      }
+
+      if (data.accessToken) {
+        sessionStorage.setItem("accessToken", data.accessToken);
+      }
+
+      return true;
+    } catch (err) {
+      console.error(err);
+    }
+
+    return false;
+  };
 
   return (
     <section className="login">
@@ -72,7 +131,8 @@ const Login = ({ onLogin }) => {
           className="login__container-netflix"
           alt="logo netflix"
         ></img>
-        <form className="login__container-input">
+        <button onClick={getUsers}>Get users</button>
+        <form className="login__container-input" onSubmit={handleLogin}>
           <div className="login__container-input--style">
             <InputLogin />
             <InputPassword />
@@ -89,11 +149,11 @@ const Login = ({ onLogin }) => {
               Nie masz jeszcze konta w serwisie Netflix? Zarejestruj się teraz.
             </p>
           </Link>
-          <button className="login__container-description">
+          <p className="login__container-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
             eligendi. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
             Lorem, ipsum.
-          </button>
+          </p>
         </form>
       </main>
     </section>
