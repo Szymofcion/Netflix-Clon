@@ -1,0 +1,19 @@
+{
+  "name": "netflix-clon",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Szymofcion/Netflix-Clon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Szymofcion/Netflix-Clon/issues"
+  },
+  "homepage": "https://github.com/Szymofcion/Netflix-Clon#readme"
+}
