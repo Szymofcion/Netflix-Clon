@@ -55,11 +55,11 @@ app.post("/api/auth/refresh", async (req, res) => {
     expiresIn: "5m",
   });
 
-  const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
+  const refreshToken1 = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "1d",
   });
 
-  res.send({ accessToken, refreshToken });
+  res.send({ accessToken, refreshToken1 });
 });
 
 function authenticate(req, res, next) {

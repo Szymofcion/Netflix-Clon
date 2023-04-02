@@ -42,8 +42,6 @@ const Login = ({ onLogin }) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    console.log(formData.get("login"));
-
     try {
       const response = await fetch("http://localhost:3000/api/auth/login", {
         headers: {
