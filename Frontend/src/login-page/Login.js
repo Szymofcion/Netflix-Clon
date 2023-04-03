@@ -31,13 +31,16 @@ const getUsers = async () => {
     }
 
     const users = await response.json();
-    console.log({ users });
+
+    const name = users[0].login;
+    const password = users[0].password;
+    console.log(name, password);
   } catch (error) {
     console.log(error);
   }
 };
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -96,13 +99,8 @@ const Login = ({ onLogin }) => {
           <div className="login__container-input--style">
             <InputLogin />
             <InputPassword />
-            {
-              // <Link to="/selectProfil">
-              <ButtonLogin />
-              // </Link>
-            }
+            <ButtonLogin onClick={getUsers} />
           </div>
-
           <p className="login__container-help">Potrzebujesz pomocy?</p>
           <Link to="/">
             <p className="login__container-signUp">
