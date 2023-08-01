@@ -39,7 +39,7 @@ const SelectProfil = () => {
 
   const dispatch = useDispatch();
   const images = useSelector((state) => state.addAvatar);
-  console.log(images);
+  console.log(useSelector((state) => state));
 
   const visibleRemoveButton = () => {
     setVisible((prev) => !prev);
@@ -69,9 +69,9 @@ const SelectProfil = () => {
             <img key={index} src={image}></img>
             // <Avatar key={index} showDeleteButton={visible} src={image} />
           ))} */}
-         {images?.map((images, index) => (
-        <img key={index} src={images} alt="s" />
-      ))}
+          {images?.map((images, index) => (
+            <img>{images}</img>
+          ))}
           <AddNewProfil showModal={openModalBtn} />
         </div>
       </div>

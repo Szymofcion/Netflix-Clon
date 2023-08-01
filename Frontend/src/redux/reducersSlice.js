@@ -27,7 +27,7 @@ import avatar4 from "../component/img/avatar4.png";
 
 export const addAvatarSlice = createSlice({
   name: "addAvatar",
-  initialState: [],
+  initialState: ['gówno','2'],
   reducers: {
     addAvatarImage: (state, action) => {
       state.push(action.payload);
