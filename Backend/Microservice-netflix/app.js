@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/movieCover", express.static(dir));
 
 app.get("/api/users", authenticate, (req, res) => {
-  const users = [{ id: "1", login: "Daria", password: "123" }];
+  const users = [{ id: "1", login: "Admin", password: "123" }];
 
   res.json(users);
 });
@@ -29,11 +29,11 @@ app.post("/api/auth/login", async (req, res) => {
   }
 
   const accessToken = jwt.sign({ id: 1 }, process.env.TOKEN_SECRET, {
-    expiresIn: "5m",
+    expiresIn: "10000",
   });
 
   const refreshToken = jwt.sign({ id: 1 }, process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: "1d",
+    expiresIn: "100000",
   });
 
   return res.send({ accessToken, refreshToken });
@@ -47,7 +47,7 @@ app.post("/api/auth/refresh", async (req, res) => {
   }
 
   try {
-    await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
   } catch (err) {
     return res.status(403).send({ message: "Forbidden" });
   }

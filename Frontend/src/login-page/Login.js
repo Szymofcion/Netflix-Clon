@@ -67,6 +67,7 @@ const Login = () => {
       if (data.refreshToken) {
         localStorage.setItem("refreshToken", data.refreshToken);
         navigate("/selectProfil");
+        
       }
 
       if (data.accessToken) {

@@ -1,6 +1,7 @@
 
 import { BsPlus } from "react-icons/bs";
 
+
 import "./AddNewProfil.scss";
 
 const AddNewProfil = ({showModal}) => {

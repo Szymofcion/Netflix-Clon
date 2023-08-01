@@ -7,7 +7,7 @@ import "./Avatar.scss";
 
 const Avatar = ({ showDeleteButton, src }) => {
   const [removed, setRemoved] = useState(false);
-
+ 
 
   const removeProfile = () => {
     setRemoved(true);
@@ -35,6 +35,5 @@ const Avatar = ({ showDeleteButton, src }) => {
     </Link>
   );
 };
-
 
 export default Avatar;

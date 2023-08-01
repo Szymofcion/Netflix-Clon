@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addAvatarSlice } from "../redux/reducersSlice";
 
 import Avatar from "../component/ui/Avatar";
 import AddNewProfil from "../component/ui/AddNewProfil";
@@ -35,6 +37,10 @@ const SelectProfil = () => {
   const [visible, setVisible] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
+  const dispatch = useDispatch();
+  const images = useSelector((state) => state.addAvatar);
+  console.log(images);
+
   const visibleRemoveButton = () => {
     setVisible((prev) => !prev);
   };
@@ -59,9 +65,13 @@ const SelectProfil = () => {
       <div className="select__container">
         <h1 className="select__container-title">Kto ogląda?</h1>
         <div className="select__container-profile">
-          {avatarImg.map((item) => (
-            <Avatar key={item.id} showDeleteButton={visible} src={item.img} />
-          ))}
+          {/* {images?.map((image, index) => (
+            <img key={index} src={image}></img>
+            // <Avatar key={index} showDeleteButton={visible} src={image} />
+          ))} */}
+         {images?.map((images, index) => (
+        <img key={index} src={images} alt="s" />
+      ))}
           <AddNewProfil showModal={openModalBtn} />
         </div>
       </div>
