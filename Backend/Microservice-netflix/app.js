@@ -24,7 +24,7 @@ app.get("/api/users", authenticate, (req, res) => {
 app.post("/api/auth/login", async (req, res) => {
   const { login, password } = req.body;
 
-  if (login !== "Daria" || password !== "123") {
+  if (login !== "Admin" || password !== "123") {
     return res.status(401).json({ message: "Invalid credentials" });
   }
 

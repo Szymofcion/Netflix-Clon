@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsArrowLeftShort } from "react-icons/bs";
 
 import refreshSession from "../utils/refreshSession";
@@ -41,6 +41,7 @@ const getUsers = async () => {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -65,6 +66,7 @@ const Login = () => {
 
       if (data.refreshToken) {
         localStorage.setItem("refreshToken", data.refreshToken);
+        navigate("/selectProfil");
       }
 
       if (data.accessToken) {
@@ -99,7 +101,7 @@ const Login = () => {
           <div className="login__container-input--style">
             <InputLogin />
             <InputPassword />
-            <ButtonLogin onClick={getUsers} />
+            <ButtonLogin onClick={getUsers} login={handleLogin} />
           </div>
           <p className="login__container-help">Potrzebujesz pomocy?</p>
           <Link to="/">
