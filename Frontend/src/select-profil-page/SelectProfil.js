@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAvatarSlice } from "../redux/reducersSlice";
+
+import { addAvatarImage } from "../redux/reducersSlice";
 
 import Avatar from "../component/ui/Avatar";
 import AddNewProfil from "../component/ui/AddNewProfil";
@@ -36,10 +37,14 @@ const avatarImg = [
 const SelectProfil = () => {
   const [visible, setVisible] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const avatar = useSelector((state) => state.addAvatar.image)
+  console.log(avatar);
+  
+  const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
-  const images = useSelector((state) => state.addAvatar);
-  console.log(useSelector((state) => state));
+  useEffect(() => {
+    addAvatarImage();
+  }, [dispatch]);
 
   const visibleRemoveButton = () => {
     setVisible((prev) => !prev);
@@ -53,6 +58,7 @@ const SelectProfil = () => {
     <section className="select__container overflow">
       {openModal && <ModalNewUser closeModal={setOpenModal} />}
       <div className="select__container-nav">
+        <button></button>
         <img
           src={netflixTitle}
           className="netflix-text"
@@ -69,9 +75,6 @@ const SelectProfil = () => {
             <img key={index} src={image}></img>
             // <Avatar key={index} showDeleteButton={visible} src={image} />
           ))} */}
-          {images?.map((images, index) => (
-            <img>{images}</img>
-          ))}
           <AddNewProfil showModal={openModalBtn} />
         </div>
       </div>

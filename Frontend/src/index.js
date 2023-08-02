@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { store } from "./redux/store";
 
 import "./index.css";
 
-import store from "./redux/store";
 import Registration from "./registration-page/Registration";
 import Login from "./login-page/Login";
 import SelectProfil from "./select-profil-page/SelectProfil";

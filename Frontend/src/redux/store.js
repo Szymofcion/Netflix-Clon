@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { addAvatarSlice } from "./reducersSlice";
+import  addAvatarSlice  from "./reducersSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    addAvatarImage: addAvatarSlice,
+    addAvatar: addAvatarSlice,
   },
 });
-export default store;
