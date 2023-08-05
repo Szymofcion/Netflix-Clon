@@ -37,14 +37,7 @@ const avatarImg = [
 const SelectProfil = () => {
   const [visible, setVisible] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const avatar = useSelector((state) => state.addAvatar.image)
-  console.log(avatar);
-  
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    addAvatarImage();
-  }, [dispatch]);
+  const avatar = useSelector((state) => state.addAvatar.image);
 
   const visibleRemoveButton = () => {
     setVisible((prev) => !prev);
@@ -71,10 +64,9 @@ const SelectProfil = () => {
       <div className="select__container">
         <h1 className="select__container-title">Kto ogląda?</h1>
         <div className="select__container-profile">
-          {/* {images?.map((image, index) => (
-            <img key={index} src={image}></img>
-            // <Avatar key={index} showDeleteButton={visible} src={image} />
-          ))} */}
+          {avatar?.map((image, index) => (
+            <Avatar key={index} showDeleteButton={visible} src={image.img} />
+          ))}
           <AddNewProfil showModal={openModalBtn} />
         </div>
       </div>

@@ -1,37 +1,27 @@
-import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { BsArrowLeftShort } from "react-icons/bs";
-import avatar1 from "../img/avatar1.png";
-import avatar2 from "../img/avatar2.png";
-import avatar3 from "../img/avatar3.png";
-import avatar4 from "../img/avatar4.png";
+
+import { addAvatarImage } from "../../redux/reducersSlice";
+
 import "./ModalNewUser.scss";
 
 const ModalNewUser = ({ closeModal }) => {
-  const [enteredImage, setEnteredImage] = useState("");
+  const [imageSrc, setImageSrc] = useState(null);
+  const avatar = useSelector((state) => state.addAvatar.image);
+  const dispatch = useDispatch();
 
-  const avatarImg = [
-    {
-      id: 1,
-      img: avatar1,
-    },
-    {
-      id: 2,
-      img: avatar2,
-    },
-    {
-      id: 3,
-      img: avatar3,
-    },
-    {
-      id: 4,
-      img: avatar4,
-    },
-  ];
-  
-  const saveImage = (e) => {
-    console.log(e.target);
-    setEnteredImage(e.target);
+  console.log(avatar);
+
+  useEffect(() => {
+    addAvatarImage();
+  }, [dispatch]);
+
+  const handleAddImage = (e) => {
+    setImageSrc(e.target.src);
+    dispatch(addAvatarImage(imageSrc));
+    console.log(avatar);
   };
 
   const closeModalBtn = () => {
@@ -52,11 +42,12 @@ const ModalNewUser = ({ closeModal }) => {
         <div className="container__modal-newImg">
           <h2> Wybierz avatar </h2>
           <div className="container__modal-avatar">
-            {avatarImg.map((item) => (
+            {avatar.map((item, index) => (
               <div>
-                <button onClick={saveImage}>
+                <button>
                   <img
-                    key={item.id}
+                    onClick={handleAddImage}
+                    key={index}
                     className="container__modal-img"
                     src={item.img}
                     alt="avatar"
