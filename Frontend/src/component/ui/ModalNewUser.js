@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { BsArrowLeftShort } from "react-icons/bs";
 
@@ -8,20 +8,14 @@ import { addAvatarImage } from "../../redux/reducersSlice";
 import "./ModalNewUser.scss";
 
 const ModalNewUser = ({ closeModal }) => {
-  const [imageSrc, setImageSrc] = useState(null);
+  const [imageSrc, setImageSrc] = useState("");
   const avatar = useSelector((state) => state.addAvatar.image);
   const dispatch = useDispatch();
 
-  console.log(avatar);
-
-  useEffect(() => {
-    addAvatarImage();
-  }, [dispatch]);
-
-  const handleAddImage = (e) => {
-    setImageSrc(e.target.src);
-    dispatch(addAvatarImage(imageSrc));
-    console.log(avatar);
+  const handleAddImage = (img) => {
+    const src = img.target.getAttribute("src");
+    setImageSrc(src);
+    dispatch(addAvatarImage({ img: src }));
   };
 
   const closeModalBtn = () => {
