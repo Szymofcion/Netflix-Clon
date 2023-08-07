@@ -14,6 +14,7 @@ import Main from "./main-page/Main";
 import App from "./App";
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <App />,

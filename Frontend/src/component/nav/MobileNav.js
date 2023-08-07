@@ -1,19 +1,22 @@
 import "./MobileNav.scss";
 import netflixTitle from "../img/netflixTitle.png";
-import Avatar1 from "../img/avatar1.png";
 import { useState, useEffect } from "react";
 
+import { useSelector } from "react-redux";
+
 const MobileNav = ({ user, logout }) => {
-  const [scrolled, setScrolled] = useState(false)
+  const selectedImage = useSelector((state) => state.addAvatar.selectedImage);
+
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className={scrolled ? "nav__container shadow-nav" : "nav__container"}>
@@ -23,8 +26,14 @@ const MobileNav = ({ user, logout }) => {
         alt="netflix"
       ></img>
 
-      <img className="nav__container-avatar" onClick={logout} src={Avatar1} alt="avatar"></img>
-      
+      {selectedImage && (
+        <img
+          className="nav__container-avatar"
+          onClick={logout}
+          src={selectedImage.img}
+          alt="avatar"
+        ></img>
+      )}
     </div>
   );
 };

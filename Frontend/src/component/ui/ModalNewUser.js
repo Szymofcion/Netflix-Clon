@@ -9,7 +9,8 @@ import "./ModalNewUser.scss";
 
 const ModalNewUser = ({ closeModal }) => {
   const [imageSrc, setImageSrc] = useState("");
-  const avatar = useSelector((state) => state.addAvatar.image);
+  const avatar = useSelector((state) => state.listAvatar.images);
+  
   const dispatch = useDispatch();
 
   const handleAddImage = (img) => {

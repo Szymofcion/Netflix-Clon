@@ -22,7 +22,7 @@ const avatarImg = [
   },
 ];
 const initialState = {
-  image: avatarImg,
+  images: avatarImg,
 };
 export const listAvatarSlice = createSlice({
   name: "listAvatar",

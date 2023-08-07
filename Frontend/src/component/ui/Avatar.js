@@ -5,9 +5,8 @@ import { BsX } from "react-icons/bs";
 
 import "./Avatar.scss";
 
-const Avatar = ({ showDeleteButton, src }) => {
+const Avatar = ({ showDeleteButton, src, saveAvatar }) => {
   const [removed, setRemoved] = useState(false);
- 
 
   const removeProfile = () => {
     setRemoved(true);
@@ -30,7 +29,12 @@ const Avatar = ({ showDeleteButton, src }) => {
   return (
     <Link to="/main">
       <div className="container__avatar">
-        <img className="container__avatar-img" src={src} alt="" />
+        <img
+          className="container__avatar-img"
+          src={src}
+          alt=""
+          onClick={saveAvatar}
+        />
       </div>
     </Link>
   );

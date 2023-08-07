@@ -24,6 +24,7 @@ const avatarImg = [
 const initialState = {
   image: avatarImg,
   lastId: 4,
+  selectedImage: null,
 };
 
 export const addAvatarSlice = createSlice({
@@ -35,9 +36,12 @@ export const addAvatarSlice = createSlice({
       state.image.push({ id: state.lastId + 1, img });
       state.lastId += 1;
     },
+    selectImage: (state, action) => {
+      state.selectedImage = action.payload;
+    },
   },
 });
 
-export const { addAvatarImage } = addAvatarSlice.actions;
+export const { addAvatarImage,selectImage } = addAvatarSlice.actions;
 
 export default addAvatarSlice.reducer;

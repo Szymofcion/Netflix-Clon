@@ -1,9 +1,12 @@
+
 import MobileNav from "./MobileNav";
 
 import "./Nav.scss";
 
 const Nav = ({ user, logout }) => {
+
   return (
+    
     <nav className="nav__container">
       <MobileNav user={user} logout={logout} />
       {/* <div className="nav__container-desktop">
