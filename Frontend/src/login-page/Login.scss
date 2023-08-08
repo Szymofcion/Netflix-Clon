@@ -11,11 +11,16 @@ a {
   }
 
   .back-arrow {
+    cursor: pointer;
     background-color: none;
     background: none;
     border: none;
     color: #fff;
     font-size: 3rem;
+  }
+  .back-arrow:hover,.back-arrow:active{
+    transition: 0.3s;
+    color:  gray;
   }
 }
 

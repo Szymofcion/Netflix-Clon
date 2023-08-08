@@ -39,7 +39,7 @@ const ModalNewUser = ({ closeModal }) => {
           <div className="container__modal-avatar">
             {avatar.map((item, index) => (
               <div>
-                <button>
+                <button className="container__modal-button">
                   <img
                     onClick={handleAddImage}
                     key={index}

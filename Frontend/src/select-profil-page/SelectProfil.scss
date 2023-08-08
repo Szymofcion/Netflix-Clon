@@ -5,6 +5,7 @@
 }
 
 .pen {
+  cursor: pointer;
   position: absolute;
   right: 0;
   top: 0;
@@ -13,6 +14,11 @@
   background: none;
   color: #fff;
   border: none;
+}
+.pen:hover,
+.pen:active {
+  transition: 0.3s;
+  color: gray;
 }
 
 .select__container {
