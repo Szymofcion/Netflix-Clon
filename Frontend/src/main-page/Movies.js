@@ -1,12 +1,13 @@
 import "./Movies.scss";
 import { useState, useEffect } from "react";
-
+import CardHover from "./CardHover";
 const Movies = (props) => {
   const [orginal, setOrginal] = useState([]);
   const [rated, setRated] = useState([]);
   const [comedy, setComedy] = useState([]);
   const [horror, setHorror] = useState([]);
   const [action, setAction] = useState([]);
+  const [isHover, setIsHover] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -37,16 +38,25 @@ const Movies = (props) => {
     <section>
       <h1 className="row__container-title">Orginalne seriale Netflix</h1>
       <div className="row__container">
-        {orginal.map((items) => {
-          return (
-            <img
-              key={items.id}
-              alt="#"
-              className="row__container-img"
-              src={items.src}
-            ></img>
-          );
-        })}
+        <div
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          className="row__container-list"
+        >
+          {orginal.map((items) => {
+            return (
+              <>
+                <img
+                  key={items.id}
+                  alt="#"
+                  className="row__container-img"
+                  src={items.src}
+                ></img>
+                {isHover && <CardHover />}
+              </>
+            );
+          })}
+        </div>
       </div>
       <h1 className="row__container-title">Top 10 w Polsce</h1>
       <div className="row__container">
