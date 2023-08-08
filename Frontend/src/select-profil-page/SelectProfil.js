@@ -40,7 +40,8 @@ const SelectProfil = () => {
           className="netflix-text"
           alt="netflix logo"
         ></img>
-        <button onClick={visibleRemoveButton} className="pen" disabled={openModal}>
+        <button onClick={visibleRemoveButton} className="pen" disabled={openModal}
+        >
           <BsFillPencilFill />
         </button>
       </div>
