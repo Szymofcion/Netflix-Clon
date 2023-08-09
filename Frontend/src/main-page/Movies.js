@@ -34,6 +34,7 @@ const Movies = (props) => {
     };
   }, []);
 
+  
   return (
     <section>
       <h1 className="row__container-title">Orginalne seriale Netflix</h1>
