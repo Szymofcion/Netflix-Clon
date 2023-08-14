@@ -1,6 +1,6 @@
 .shadow-nav {
   background: rgba(0, 0, 0, 0.767);
-  transition:  0.5s;
+  transition: 0.5s;
 }
 
 .nav__container {
@@ -8,12 +8,12 @@
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   z-index: 1;
-
   &-avatar {
     width: 45px;
+    margin-right: 1em;
   }
 
   &-netflix {
@@ -21,7 +21,6 @@
     height: 44px;
     z-index: 15;
   }
-
 }
 
 @media (min-width: 768px) {

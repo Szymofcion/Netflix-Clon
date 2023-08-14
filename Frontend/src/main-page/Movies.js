@@ -1,13 +1,27 @@
 import "./Movies.scss";
+
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addVideo } from "../redux/reducerFavotoriteSlice";
+import { useSelector } from "react-redux";
 import CardHover from "./CardHover";
-const Movies = (props) => {
+
+const Movies = () => {
   const [orginal, setOrginal] = useState([]);
   const [rated, setRated] = useState([]);
   const [comedy, setComedy] = useState([]);
   const [horror, setHorror] = useState([]);
   const [action, setAction] = useState([]);
   const [hoveredItemId, setHoveredItemId] = useState(false);
+  const dispatch = useDispatch();
+
+  const selectedVideo = useSelector((state) => state.selectedVideos);
+  console.log(selectedVideo);
+  const handleAddToFavorites = (videoId) => {
+    if (!selectedVideo.some((item) => item === videoId)) {
+      dispatch(addVideo(videoId));
+    }
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -45,6 +59,7 @@ const Movies = (props) => {
                 className="row__container-list-img"
                 onMouseEnter={() => setHoveredItemId(items.id)}
                 onMouseLeave={() => setHoveredItemId(null)}
+                onClick={() => handleAddToFavorites(items)}
               >
                 <img
                   key={items.id}
@@ -63,18 +78,18 @@ const Movies = (props) => {
         {rated.map((items) => {
           return (
             <div
-            className="row__container-list-img"
-            onMouseEnter={() => setHoveredItemId(items.id)}
-            onMouseLeave={() => setHoveredItemId(null)}
-          >
-            <img
-              key={items.id}
-              alt="#"
-              className="row__container-img"
-              src={items.src}
-            ></img>
-            {hoveredItemId === items.id && <CardHover />}
-          </div>
+              className="row__container-list-img"
+              onMouseEnter={() => setHoveredItemId(items.id)}
+              onMouseLeave={() => setHoveredItemId(null)}
+            >
+              <img
+                key={items.id}
+                alt="#"
+                className="row__container-img"
+                src={items.src}
+              ></img>
+              {hoveredItemId === items.id && <CardHover />}
+            </div>
           );
         })}
       </div>
@@ -83,18 +98,18 @@ const Movies = (props) => {
         {comedy.map((items) => {
           return (
             <div
-                className="row__container-list-img"
-                onMouseEnter={() => setHoveredItemId(items.id)}
-                onMouseLeave={() => setHoveredItemId(null)}
-              >
-                <img
-                  key={items.id}
-                  alt="#"
-                  className="row__container-img"
-                  src={items.src}
-                ></img>
-                {hoveredItemId === items.id && <CardHover />}
-              </div>
+              className="row__container-list-img"
+              onMouseEnter={() => setHoveredItemId(items.id)}
+              onMouseLeave={() => setHoveredItemId(null)}
+            >
+              <img
+                key={items.id}
+                alt="#"
+                className="row__container-img"
+                src={items.src}
+              ></img>
+              {hoveredItemId === items.id && <CardHover />}
+            </div>
           );
         })}
       </div>
@@ -103,18 +118,18 @@ const Movies = (props) => {
         {horror.map((items) => {
           return (
             <div
-            className="row__container-list-img"
-            onMouseEnter={() => setHoveredItemId(items.id)}
-            onMouseLeave={() => setHoveredItemId(null)}
-          >
-            <img
-              key={items.id}
-              alt="#"
-              className="row__container-img"
-              src={items.src}
-            ></img>
-            {hoveredItemId === items.id && <CardHover />}
-          </div>
+              className="row__container-list-img"
+              onMouseEnter={() => setHoveredItemId(items.id)}
+              onMouseLeave={() => setHoveredItemId(null)}
+            >
+              <img
+                key={items.id}
+                alt="#"
+                className="row__container-img"
+                src={items.src}
+              ></img>
+              {hoveredItemId === items.id && <CardHover />}
+            </div>
           );
         })}
       </div>
@@ -123,18 +138,18 @@ const Movies = (props) => {
         {action.map((items) => {
           return (
             <div
-                className="row__container-list-img"
-                onMouseEnter={() => setHoveredItemId(items.id)}
-                onMouseLeave={() => setHoveredItemId(null)}
-              >
-                <img
-                  key={items.id}
-                  alt="#"
-                  className="row__container-img"
-                  src={items.src}
-                ></img>
-                {hoveredItemId === items.id && <CardHover />}
-              </div>
+              className="row__container-list-img"
+              onMouseEnter={() => setHoveredItemId(items.id)}
+              onMouseLeave={() => setHoveredItemId(null)}
+            >
+              <img
+                key={items.id}
+                alt="#"
+                className="row__container-img"
+                src={items.src}
+              ></img>
+              {hoveredItemId === items.id && <CardHover />}
+            </div>
           );
         })}
       </div>

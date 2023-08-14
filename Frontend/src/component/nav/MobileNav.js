@@ -1,7 +1,9 @@
 import "./MobileNav.scss";
 import netflixTitle from "../img/netflixTitle.png";
-import { useState, useEffect } from "react";
+import { BsFillPlayCircleFill, BsFillCollectionPlayFill } from "react-icons/bs";
 
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const MobileNav = ({ user, logout }) => {
@@ -20,20 +22,27 @@ const MobileNav = ({ user, logout }) => {
 
   return (
     <div className={scrolled ? "nav__container shadow-nav" : "nav__container"}>
+      <Link to="#" onClick={() => window.history.back()}>
+        Wróć
+      </Link>
       <img
         src={netflixTitle}
         className="nav__container-netflix"
         alt="netflix"
       ></img>
-
-      {selectedImage && (
-        <img
-          className="nav__container-avatar"
-          onClick={logout}
-          src={selectedImage.img}
-          alt="avatar"
-        ></img>
-      )}
+      <div >
+        {selectedImage && (
+          <img
+            className="nav__container-avatar"
+            onClick={logout}
+            src={selectedImage.img}
+            alt="avatar"
+          ></img>
+        )}
+        <Link to="/favoriteVideo">
+          <BsFillCollectionPlayFill style={{ color: "white" }} size={32} />
+        </Link>
+      </div>
     </div>
   );
 };

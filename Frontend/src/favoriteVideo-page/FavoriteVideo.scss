@@ -1,0 +1,27 @@
+
+h1 {
+  margin: 0;
+  color: #ffff;
+}
+
+.favotite__container {
+  margin-top: 4em;
+  color: #ffff;
+  width: 100%;
+  background-color: rgb(39, 38, 38);
+  &-title {
+    margin-left: 1em;
+  }
+  &-margin {
+    margin-left: 4em;
+  }
+  &-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-span {
+      margin-left: 1em;
+      font-size: 1.2rem;
+    }
+  }
+}

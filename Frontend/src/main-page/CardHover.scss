@@ -24,7 +24,16 @@
     z-index: 999;
     cursor: pointer;
   }
-
+  .icons-play {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  .icons-play:hover {
+    transition: 0.3s;
+    color: red;
+  }
   .video-wrapper {
     position: relative;
     overflow: hidden;

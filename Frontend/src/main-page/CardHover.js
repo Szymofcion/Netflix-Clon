@@ -5,7 +5,7 @@ import "./CardHover.scss";
 
 const CardHover = () => {
   const [showVideo, setShowVideo] = useState(false);
-
+ 
   const toggleShowVideo = () => {
     setShowVideo(!showVideo);
   };
@@ -13,8 +13,12 @@ const CardHover = () => {
   return (
     <div className="container__video">
       <div className="container__video-icons">
-        <BsFillPlayCircleFill onClick={toggleShowVideo} />
-        <BsFillCollectionPlayFill />
+        <button className="icons-play">
+          <BsFillPlayCircleFill size={22} onClick={toggleShowVideo} />
+        </button>
+        <button className="icons-play">
+          <BsFillCollectionPlayFill size={22} />
+        </button>
       </div>
       {showVideo && (
         <div className="video-overlay" onClick={toggleShowVideo}>

@@ -7,6 +7,7 @@ import { store } from "./redux/store";
 
 import "./index.css";
 
+import FavoriteVideo from "./favoriteVideo-page/FavoriteVideo";
 import Registration from "./registration-page/Registration";
 import Login from "./login-page/Login";
 import SelectProfil from "./select-profil-page/SelectProfil";
@@ -14,7 +15,6 @@ import Main from "./main-page/Main";
 import App from "./App";
 
 const router = createBrowserRouter([
-  
   {
     path: "/",
     element: <App />,
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/main",
     element: <Main />,
+  },
+  {
+    path: "/favoriteVideo",
+    element: <FavoriteVideo />,
   },
 ]);
 
