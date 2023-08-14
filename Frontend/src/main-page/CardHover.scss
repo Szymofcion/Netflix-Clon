@@ -1,11 +1,18 @@
-.container__video-bottom{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: gray;
+.container__video {
+  background-color: rgba(128, 128, 128, 0.205);
+  margin-right: 10px;
+  padding: 0.5em;
+  border-radius: 8px;
  
-    &-info{
 
-    }
+  &-icons {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  &-bottom {
+    display: none;
+  }
 }

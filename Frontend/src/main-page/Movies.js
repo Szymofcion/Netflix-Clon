@@ -7,7 +7,7 @@ const Movies = (props) => {
   const [comedy, setComedy] = useState([]);
   const [horror, setHorror] = useState([]);
   const [action, setAction] = useState([]);
-  const [isHover, setIsHover] = useState(false);
+  const [hoveredItemId, setHoveredItemId] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -34,27 +34,26 @@ const Movies = (props) => {
     };
   }, []);
 
-  
   return (
     <section>
       <h1 className="row__container-title">Orginalne seriale Netflix</h1>
       <div className="row__container">
-        <div
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          className="row__container-list"
-        >
+        <div className="row__container-list">
           {orginal.map((items) => {
             return (
-              <>
+              <div
+                className="row__container-list-img"
+                onMouseEnter={() => setHoveredItemId(items.id)}
+                onMouseLeave={() => setHoveredItemId(null)}
+              >
                 <img
                   key={items.id}
                   alt="#"
                   className="row__container-img"
                   src={items.src}
                 ></img>
-                {isHover && <CardHover />}
-              </>
+                {hoveredItemId === items.id && <CardHover />}
+              </div>
             );
           })}
         </div>
@@ -63,12 +62,19 @@ const Movies = (props) => {
       <div className="row__container">
         {rated.map((items) => {
           return (
+            <div
+            className="row__container-list-img"
+            onMouseEnter={() => setHoveredItemId(items.id)}
+            onMouseLeave={() => setHoveredItemId(null)}
+          >
             <img
               key={items.id}
               alt="#"
               className="row__container-img"
               src={items.src}
             ></img>
+            {hoveredItemId === items.id && <CardHover />}
+          </div>
           );
         })}
       </div>
@@ -76,12 +82,19 @@ const Movies = (props) => {
       <div className="row__container">
         {comedy.map((items) => {
           return (
-            <img
-              key={items.id}
-              alt="#"
-              className="row__container-img"
-              src={items.src}
-            ></img>
+            <div
+                className="row__container-list-img"
+                onMouseEnter={() => setHoveredItemId(items.id)}
+                onMouseLeave={() => setHoveredItemId(null)}
+              >
+                <img
+                  key={items.id}
+                  alt="#"
+                  className="row__container-img"
+                  src={items.src}
+                ></img>
+                {hoveredItemId === items.id && <CardHover />}
+              </div>
           );
         })}
       </div>
@@ -89,12 +102,19 @@ const Movies = (props) => {
       <div className="row__container">
         {horror.map((items) => {
           return (
+            <div
+            className="row__container-list-img"
+            onMouseEnter={() => setHoveredItemId(items.id)}
+            onMouseLeave={() => setHoveredItemId(null)}
+          >
             <img
               key={items.id}
               alt="#"
               className="row__container-img"
               src={items.src}
             ></img>
+            {hoveredItemId === items.id && <CardHover />}
+          </div>
           );
         })}
       </div>
@@ -102,12 +122,19 @@ const Movies = (props) => {
       <div className="row__container">
         {action.map((items) => {
           return (
-            <img
-              key={items.id}
-              alt="#"
-              className="row__container-img"
-              src={items.src}
-            ></img>
+            <div
+                className="row__container-list-img"
+                onMouseEnter={() => setHoveredItemId(items.id)}
+                onMouseLeave={() => setHoveredItemId(null)}
+              >
+                <img
+                  key={items.id}
+                  alt="#"
+                  className="row__container-img"
+                  src={items.src}
+                ></img>
+                {hoveredItemId === items.id && <CardHover />}
+              </div>
           );
         })}
       </div>

@@ -144,56 +144,56 @@ app.get("/movies", function (req, res, next) {
     ],
     rated: [
       {
-        id: 1,
+        id: 9,
         title: "Zwerbowany",
         src: "http://localhost:3000/movieCover/Zwerbowany.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 2,
+        id: 10,
         title: "Luther`",
         src: "http://localhost:3000/movieCover/Luther.jpg",
         descriptions:
           "rawurowo skonstruowany psychologiczny serial kryminalny opowiadający o piekielnie inteligentnym i stroniącym od ludzi Johnie Lutherze, który jest detektywem w londyńskiej jednostce policyjnej. ",
       },
       {
-        id: 3,
+        id: 11,
         title: "JakSprzedawacDragiWSieci`",
         src: "http://localhost:3000/movieCover/JakSprzedawacDragiWSieci.jpg",
         descriptions:
           "Aby odzyskać dziewczynę, nastoletni nerd zaczyna sprzedawać online ecstasy ze swojej sypialni i zostaje jednym z największych dilerów w Europie.",
       },
       {
-        id: 4,
+        id: 12,
         title: "Obserwator",
         src: "http://localhost:3000/movieCover/Obserwator.jpg",
         descriptions:
           "Dean i Nora Brannockowie (w serialu Bobby Cannavale i Naomi Watts) przeprowadzają się do idyllicznej dzielnicy New Jersey, gdzie szukają spokoju i bezpiecznego miejsca dla swoich dzieci.",
       },
       {
-        id: 5,
+        id: 13,
         title: "Peakty Blinders",
         src: "http://localhost:3000/movieCover/PeakyBlinders.jpg",
         descriptions:
           "Tommy Shelby (Cillian Murphy) jest weteranem wojennym i przywódcą niesławnego gangu Peaky Blinders, zwanego tak z powodu żyletek wszytych do czapek noszonych przez jego członków.",
       },
       {
-        id: 6,
+        id: 14,
         title: "SandMan",
         src: "http://localhost:3000/movieCover/SandMan.jpg",
         descriptions:
           "Dean i Nora Brannockowie (w serialu Bobby Cannavale i Naomi Watts) przeprowadzają się do idyllicznej dzielnicy New Jersey, gdzie szukają spokoju i bezpiecznego miejsca dla swoich dzieci.",
       },
       {
-        id: 7,
+        id: 15,
         title: "StrangerThings",
         src: "http://localhost:3000/movieCover/StrangerThings.jpg",
         descriptions:
           "W nocy 6 listopada 1983, w Hawkins w stanie Indiana, w tajemniczych okolicznościach znika dwunastoletni Will Byers. Jego matka, Joyce, chce za wszelką cenę odnaleźć syna, część mieszkańców uważa jednak, że oszalała. ",
       },
       {
-        id: 8,
+        id: 16,
         title: "TheRain",
         src: "http://localhost:3000/movieCover/TheRain.jpg",
         descriptions:
@@ -202,56 +202,56 @@ app.get("/movies", function (req, res, next) {
     ],
     comedy: [
       {
-        id: 1,
+        id: 17,
         title: "GoodGirls`",
         src: "http://localhost:3000/movieCover/GoodGirlL_.jpg",
         descriptions:
           "Mieszkające na przedmieściach Detroit Beth (Christina Hendricks), Annie (Mae Whitman) i Ruby (Retta) ledwo wiążą koniec z końcem. Chcąc poprawić swoją sytuację finansową, organizują napad na sklep spożywczy, w którym Annie jest kasjerką.",
       },
       {
-        id: 2,
+        id: 18,
         title: "SamceAlfa",
         src: "http://localhost:3000/movieCover/SamceAlfa.jpg",
         descriptions:
           "Piotrek za namową narzeczonej, zapisuje się na kurs rzucania palenia. Przez pomyłkę trafia na enigmatyczne szkolenie samorozwoju, gdzie pod wpływem charyzmatycznego coacha – Lidera, zaczyna poddawać w wątpliwość swój związek, który do tej pory uważał za idealny.",
       },
       {
-        id: 3,
+        id: 19,
         title: "NieMaJakWRodzinie",
         src: "http://localhost:3000/movieCover/NieMaJakWRodzinie.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 4,
+        id: 20,
         title: "DobreMiejsce",
         src: "http://localhost:3000/movieCover/DobreMiejsce.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 5,
+        id: 21,
         title: "SexEducation",
         src: "http://localhost:3000/movieCover/SexEducation.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 6,
+        id: 22,
         title: "Atypowy",
         src: "http://localhost:3000/movieCover/Atypowy.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 7,
+        id: 23,
         title: "GinnyAndGorgia",
         src: "http://localhost:3000/movieCover/GinnyAndGorgia.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 8,
+        id: 24,
         title: "ParadisePD",
         src: "http://localhost:3000/movieCover/ParadisePD.jpg",
         descriptions:
@@ -260,56 +260,56 @@ app.get("/movies", function (req, res, next) {
     ],
     horror: [
       {
-        id: 1,
+        id: 25,
         title: "1899",
         src: "http://localhost:3000/movieCover/1899.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 2,
+        id: 26,
         title: "MamyTuDucha",
         src: "http://localhost:3000/movieCover/MamyTuDucha.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 3,
+        id: 27,
         title: "Opiekunka",
         src: "http://localhost:3000/movieCover/Opiekunka.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 4,
+        id: 28,
         title: "Rytual",
         src: "http://localhost:3000/movieCover/Rytual.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 5,
+        id: 29,
         title: "Cisza",
         src: "http://localhost:3000/movieCover/Cisza.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 6,
+        id: 30,
         title: "CoWidacISlychac",
         src: "http://localhost:3000/movieCover/CoWidacISlychac.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 7,
+        id: 31,
         title: "Ladunek",
         src: "http://localhost:3000/movieCover/Ladunek.jpg",
         descriptions:
           "1899 rok. Parowiec z emigrantami bierze kurs na zachód. Pasażerowie pochodzą z różnych części Europy, ale łączą ich wspólne marzenia i nadzieja na lepszą przyszłość w nowym świecie.",
       },
       {
-        id: 8,
+        id: 32,
         title: "Clinical",
         src: "http://localhost:3000/movieCover/Clinical.jpg",
         descriptions:
@@ -318,56 +318,56 @@ app.get("/movies", function (req, res, next) {
     ],
     action: [
       {
-        id: 1,
+        id: 33,
         title: "Peakty Blinders",
         src: "http://localhost:3000/movieCover/PeakyBlinders.jpg",
         descriptions:
           "Tommy Shelby (Cillian Murphy) jest weteranem wojennym i przywódcą niesławnego gangu Peaky Blinders, zwanego tak z powodu żyletek wszytych do czapek noszonych przez jego członków.",
       },
       {
-        id: 2,
+        id: 34,
         title: "Wiedzmin",
         src: "http://localhost:3000/movieCover/Wiedzmin.jpg",
         descriptions:
           "Wiedźmin to epicka opowieść na podstawie kultowej sagi fantasy Andrzeja Sapkowskiego. Geralt z Rivii, samotny zabójca potworów, usiłuje odnaleźć się w świecie, w którym ludzie bywają gorsi niż bestie, na które poluje.",
       },
       {
-        id: 3,
+        id: 35,
         title: "GinnyAndGorgia",
         src: "http://localhost:3000/movieCover/GinnyAndGorgia.jpg",
         descriptions:
           "Młody prawnik zostaje wciągnięty w niebezpieczną międzynarodową aferę szpiegowską, gdy dawna pracownica CIA grozi, że ujawni sekrety agencji.",
       },
       {
-        id: 4,
+        id: 36,
         title: "SamceAlfa",
         src: "http://localhost:3000/movieCover/SamceAlfa.jpg",
         descriptions:
           "Piotrek za namową narzeczonej, zapisuje się na kurs rzucania palenia. Przez pomyłkę trafia na enigmatyczne szkolenie samorozwoju, gdzie pod wpływem charyzmatycznego coacha – Lidera, zaczyna poddawać w wątpliwość swój związek, który do tej pory uważał za idealny.",
       },
       {
-        id: 5,
+        id: 37,
         title: "SandMan",
         src: "http://localhost:3000/movieCover/SandMan.jpg",
         descriptions:
           "Dean i Nora Brannockowie (w serialu Bobby Cannavale i Naomi Watts) przeprowadzają się do idyllicznej dzielnicy New Jersey, gdzie szukają spokoju i bezpiecznego miejsca dla swoich dzieci.",
       },
       {
-        id: 6,
+        id: 38,
         title: "StrangerThings",
         src: "http://localhost:3000/movieCover/StrangerThings.jpg",
         descriptions:
           "W nocy 6 listopada 1983, w Hawkins w stanie Indiana, w tajemniczych okolicznościach znika dwunastoletni Will Byers. Jego matka, Joyce, chce za wszelką cenę odnaleźć syna, część mieszkańców uważa jednak, że oszalała. ",
       },
       {
-        id: 7,
+        id: 39,
         title: "EnolaHolmes2",
         src: "http://localhost:3000/movieCover/EnolaHolmes2.jpg",
         descriptions:
           "Enola przyjmuje pierwszą oficjalną sprawę jako detektyw, jednak aby rozwiązać tajemnicę zaginięcia dziewczyny, będzie potrzebować pomocy przyjaciół i brata Sherlocka.",
       },
       {
-        id: 8,
+        id: 40,
         title: "Zwerbowany",
         src: "http://localhost:3000/movieCover/Zwerbowany.jpg",
         descriptions:
