@@ -1,27 +1,36 @@
+import React, { useState } from "react";
 import { BsFillPlayCircleFill, BsFillCollectionPlayFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-
+import vide from "../assets/dominic-fike-3-nights.mp4";
 import "./CardHover.scss";
 
 const CardHover = () => {
-  const navigate = useNavigate();
+  const [showVideo, setShowVideo] = useState(false);
+
+  const toggleShowVideo = () => {
+    setShowVideo(!showVideo);
+  };
 
   return (
     <div className="container__video">
       <div className="container__video-icons">
-        <BsFillPlayCircleFill onClick={() => navigate("/player")} />{" "}
+        <BsFillPlayCircleFill onClick={toggleShowVideo} />
         <BsFillCollectionPlayFill />
       </div>
-      <div className="container__video-bottom">
-        <iframe
-          autoPlay
-          loop
-          muted
-          src="https://www.youtube.com/watch?v=J50rarfx1pY&ab_channel=CM3OFFICIAL"
-        ></iframe>
-      </div>
+      {showVideo && (
+        <div className="video-overlay" onClick={toggleShowVideo}>
+          <div className="video-wrapper">
+            <iframe
+              title="YouTube Video"
+              width="560"
+              height="315"
+              src={vide}
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
 export default CardHover;
