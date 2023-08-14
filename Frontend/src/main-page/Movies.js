@@ -81,6 +81,7 @@ const Movies = () => {
               className="row__container-list-img"
               onMouseEnter={() => setHoveredItemId(items.id)}
               onMouseLeave={() => setHoveredItemId(null)}
+              onClick={() => handleAddToFavorites(items)}
             >
               <img
                 key={items.id}
@@ -101,6 +102,7 @@ const Movies = () => {
               className="row__container-list-img"
               onMouseEnter={() => setHoveredItemId(items.id)}
               onMouseLeave={() => setHoveredItemId(null)}
+              onClick={() => handleAddToFavorites(items)}
             >
               <img
                 key={items.id}
@@ -121,6 +123,7 @@ const Movies = () => {
               className="row__container-list-img"
               onMouseEnter={() => setHoveredItemId(items.id)}
               onMouseLeave={() => setHoveredItemId(null)}
+              onClick={() => handleAddToFavorites(items)}
             >
               <img
                 key={items.id}
@@ -141,6 +144,7 @@ const Movies = () => {
               className="row__container-list-img"
               onMouseEnter={() => setHoveredItemId(items.id)}
               onMouseLeave={() => setHoveredItemId(null)}
+              onClick={() => handleAddToFavorites(items)}
             >
               <img
                 key={items.id}
